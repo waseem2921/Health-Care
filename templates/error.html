@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Error</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .error-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .error-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .error-title {
+            color: #d32f2f;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .error-message {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .offline-badge {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #667eea;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        .btn-secondary:hover {
+            background: #eee;
+            text-decoration: none;
+        }
+        .status-info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: left;
+            font-size: 13px;
+            color: #555;
+        }
+        .status-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .status-label {
+            font-weight: 600;
+            color: #333;
+        }
+        .status-value {
+            color: #999;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        {% if offline_mode_active %}
+            <div class="error-icon">📱</div>
+            <div class="offline-badge">⚠️ OFFLINE MODE</div>
+            <div class="error-title">System Offline</div>
+            <div class="error-message">
+                The system is currently operating in offline mode. Your changes and data are being saved locally and will synchronize with cloud services when connectivity is restored.
+            </div>
+        {% else %}
+            <div class="error-icon">🔧</div>
+            <div class="error-title">{{ error|default:"An Error Occurred" }}</div>
+            <div class="error-message">
+                {{ message|default:"The system encountered an unexpected error. Please try again later." }}
+            </div>
+        {% endif %}
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="window.location.reload()">
+                🔄 Retry
+            </button>
+            <a href="/" class="btn btn-secondary">
+                🏠 Go Home
+            </a>
+        </div>
+
+        {% if offline_mode_active or warning_message %}
+            <div class="status-info">
+                <div class="status-item" style="border-bottom: none;">
+                    <span class="status-label">💾 Offline Features:</span>
+                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                        <li>✓ View existing data</li>
+                        <li>✓ Create/edit records locally</li>
+                        <li>⏱️ Sync when online</li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Auto-refresh every 30 seconds to check if system is back online
+        {% if offline_mode_active %}
+            setTimeout(() => {
+                window.location.reload();
+            }, 30000);
+        {% endif %}
+    </script>
+</body>
+</html>

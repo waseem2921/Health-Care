@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Management Analytics | PulseAnalysis AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700;900&family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <style>
+        :root {
+            --navy: #102a43;
+            --teal: #0f766e;
+            --amber: #b45309;
+            --slate: #334155;
+            --soft: #f1f5f9;
+            --line: #dbe2ea;
+            --surface: #ffffff;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background: radial-gradient(circle at 10% 20%, rgba(15, 118, 110, 0.08), transparent 40%),
+                        radial-gradient(circle at 85% 10%, rgba(180, 83, 9, 0.08), transparent 35%),
+                        linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+            color: #0f172a;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -290px;
+            width: 290px;
+            height: 100%;
+            background: var(--navy);
+            padding-top: 88px;
+            transition: 0.3s;
+            z-index: 2000;
+            box-shadow: 14px 0 40px rgba(15, 23, 42, 0.3);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            padding: 14px 26px;
+            border-left: 4px solid transparent;
+            font-weight: 600;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255, 255, 255, 0.12);
+            border-left-color: #fbbf24;
+            color: #f8fafc;
+        }
+
+        .topbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 1500;
+            padding: 11px 20px;
+        }
+
+        .hamburger {
+            font-size: 1.3rem;
+            color: var(--navy);
+            cursor: pointer;
+            margin-right: 14px;
+        }
+
+        .hero {
+            padding: 30px 0 24px;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .hero-subtitle {
+            color: #475569;
+            margin-top: 8px;
+        }
+
+        .card-shell {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        }
+
+        .kpi-card {
+            padding: 18px;
+            height: 100%;
+        }
+
+        .kpi-label {
+            color: #64748b;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .kpi-value {
+            color: var(--navy);
+            font-size: 1.65rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .chart-card {
+            padding: 18px;
+            height: 100%;
+        }
+
+        .chart-wrap {
+            position: relative;
+            height: 280px;
+        }
+
+        .insight-banner {
+            background: linear-gradient(110deg, #0f766e, #1d4ed8);
+            color: white;
+            border-radius: 14px;
+            padding: 16px 18px;
+            box-shadow: 0 12px 26px rgba(29, 78, 216, 0.24);
+        }
+
+        table td,
+        table th {
+            vertical-align: middle;
+            font-size: 0.9rem;
+        }
+
+        .badge-soft {
+            background: #ecfeff;
+            color: #0f766e;
+            border: 1px solid #99f6e4;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 22px 0;
+            color: #475569;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 991px) {
+            .chart-wrap {
+                height: 240px;
+            }
+
+            .hero-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+
+    <link href='/static/css/role-theme.css' rel='stylesheet'>
+</head>
+
+<body class="role-management">
+
+<div id="sidebar" class="sidebar">
+    <a href="/AdminHome"><i class="fas fa-th-large"></i> Dashboard</a>
+    <a href="/management-analytics" class="active"><i class="fas fa-hospital-user"></i> Management Analytics</a>
+    <a href="/ManageUsers"><i class="fas fa-users-cog"></i> Manage Users</a>
+    <a href="/Upload"><i class="fas fa-cloud-upload-alt"></i> Upload Dataset</a>
+    <a href="/preprocess"><i class="fas fa-cogs"></i> Preprocessing</a>
+    <a href="/trainmodels"><i class="fas fa-brain"></i> Train Models</a>
+    <a href="/model_performance"><i class="fas fa-chart-line"></i> Model Performance</a>
+    <div style="margin-top: 36px; border-top: 1px solid rgba(255,255,255,0.2);">
+        <a href="/adminlogin"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+<nav class="topbar">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+            <div class="fw-bold" style="font-family: 'Crimson Pro', serif; font-size: 1.35rem; color: var(--navy);">
+                PulseAnalysis AI Management Console
+            </div>
+        </div>
+        <span class="badge-soft">Generated: {{ generated_at }}</span>
+    </div>
+</nav>
+
+<main class="container pb-4">
+    <section class="hero">
+        <h1 class="hero-title">Hospital-Level Lifestyle Disorder Monitoring</h1>
+        <p class="hero-subtitle">Population health tracking with explainable AI, workload surveillance, and data-quality governance.</p>
+    </section>
+
+    <section class="row g-3 mb-3">
+        <div class="col-6 col-lg-3">
+            <div class="card-shell kpi-card">
+                <div class="kpi-label">Registered Patients</div>
+                <div class="kpi-value">{{ total_registered_patients }}</div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card-shell kpi-card">
+                <div class="kpi-label">Active Patients Today</div>
+                <div class="kpi-value">{{ active_patients_today }}</div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card-shell kpi-card">
+                <div class="kpi-label">Doctors Active Today</div>
+                <div class="kpi-value">{{ active_doctors_today }}</div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card-shell kpi-card">
+                <div class="kpi-label">Chatbot Interactions</div>
+                <div class="kpi-value">{{ total_chatbot_interactions }}</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insight-banner mb-3">
+        <strong>Stress-Sleep Insight:</strong>
+        {{ cross_hospital_insight }}
+    </section>
+
+    <section class="row g-3 mb-3">
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Hospital Comparison</h4>
+                <div class="chart-wrap"><canvas id="hospitalComparisonChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Lifestyle Risk Distribution (System)</h4>
+                <div class="chart-wrap"><canvas id="riskDistributionChart"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-3 mb-3">
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Stress vs Sleep Quality by Hospital</h4>
+                <div class="chart-wrap"><canvas id="stressSleepChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Doctor Workload (Top 10)</h4>
+                <div class="chart-wrap"><canvas id="doctorWorkloadChart"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-3 mb-3">
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Activity Level Distribution</h4>
+                <div class="chart-wrap"><canvas id="activityDistributionChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Sedentary Trend (Last 14 Days)</h4>
+                <div class="chart-wrap"><canvas id="sedentaryTrendChart"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-3 mb-3">
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Global Explainable AI Feature Signals</h4>
+                <div class="chart-wrap"><canvas id="xaiChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Wearable vs Manual Data Source Mix</h4>
+                <div class="chart-wrap"><canvas id="sourceMixChart"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-3 mb-3">
+        <div class="col-xl-7">
+            <div class="card-shell p-3 h-100">
+                <h4 class="section-title">Hospital-Wise Monitoring Table</h4>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped align-middle">
+                        <thead>
+                        <tr>
+                            <th>Hospital</th>
+                            <th>Patients</th>
+                            <th>Doctors</th>
+                            <th>High Risk</th>
+                            <th>Avg Stress</th>
+                            <th>Avg Sleep Hours</th>
+                            <th>Avg Sleep Quality</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in hospital_rows %}
+                        <tr>
+                            <td>{{ row.hospital }}</td>
+                            <td>{{ row.patients }}</td>
+                            <td>{{ row.doctors }}</td>
+                            <td>{{ row.high_risk_cases }}</td>
+                            <td>{{ row.avg_stress if row.avg_stress is not none else "-" }}</td>
+                            <td>{{ row.avg_sleep_hours if row.avg_sleep_hours is not none else "-" }}</td>
+                            <td>{{ row.avg_sleep_quality if row.avg_sleep_quality is not none else "-" }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5">
+            <div class="card-shell p-3 h-100">
+                <h4 class="section-title">Prediction and AI Activity</h4>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Total Predictions Generated</span>
+                    <strong>{{ total_predictions }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>High-Risk Alerts</span>
+                    <strong>{{ high_risk_alerts }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Lifestyle Disorder Warnings</span>
+                    <strong>{{ lifestyle_warnings }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Average Stress Level</span>
+                    <strong>{{ avg_stress if avg_stress is not none else "-" }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Average Sleep Hours</span>
+                    <strong>{{ avg_sleep_hours if avg_sleep_hours is not none else "-" }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2">
+                    <span>Average Sleep Quality</span>
+                    <strong>{{ avg_sleep_quality if avg_sleep_quality is not none else "-" }}</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-3 mb-3">
+        <div class="col-lg-6">
+            <div class="card-shell p-3 h-100">
+                <h4 class="section-title">Wearable vs Manual Reliability</h4>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped">
+                        <thead>
+                        <tr>
+                            <th>Data Source</th>
+                            <th>Patients</th>
+                            <th>Avg Risk Score</th>
+                            <th>High-Risk %</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in reliability_rows %}
+                        <tr>
+                            <td>{{ row.source }}</td>
+                            <td>{{ row.patients }}</td>
+                            <td>{{ row.avg_risk_score if row.avg_risk_score is not none else "-" }}</td>
+                            <td>{{ row.high_risk_rate if row.high_risk_rate is not none else "-" }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-shell p-3 h-100">
+                <h4 class="section-title">Data Quality Monitoring</h4>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Missing Sleep Metrics</span>
+                    <strong>{{ data_quality.missing_sleep_metrics }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Patients Missing Wearable Data</span>
+                    <strong>{{ data_quality.missing_wearable_data }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Abnormal Heart Rate Records</span>
+                    <strong>{{ data_quality.abnormal_heart_rate_values }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Average Daily Steps</span>
+                    <strong>{{ avg_steps if avg_steps is not none else "-" }}</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>Average Calorie Burn</span>
+                    <strong>{{ avg_calories if avg_calories is not none else "-" }}</strong>
+                </div>
+                <div class="py-2">
+                    <span class="text-muted">Sedentary Alert Days:</span>
+                    {% if sedentary_alert_days %}
+                        <div class="mt-2">
+                            {% for day in sedentary_alert_days %}
+                                <span class="badge bg-warning text-dark me-1 mb-1">{{ day }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="mt-2 text-success">No high sedentary spikes detected.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Population Health Analytics ──────────────────────────────────── -->
+    <section class="row g-3 mb-3">
+        <div class="col-lg-6">
+            <div class="card-shell chart-card">
+                <h4 class="section-title">Population Risk Factor Prevalence</h4>
+                <p class="text-muted small mb-3">% of patients exhibiting each common lifestyle risk condition based on their average health metrics.</p>
+                <div class="chart-wrap"><canvas id="popRiskFactorChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-shell p-3 h-100">
+                <h4 class="section-title">Common Lifestyle Risk Factors</h4>
+                <p class="text-muted small mb-3">Aggregated across all registered patients with recorded health metrics.</p>
+                {% if population_risk_factors %}
+                <div class="d-grid gap-2">
+                    {% for row in population_risk_factors %}
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="fw-bold small">{{ row.factor }}</span>
+                            <span class="badge {% if row.pct >= 30 %}bg-danger{% elif row.pct >= 15 %}bg-warning text-dark{% else %}bg-success{% endif %}">
+                                {{ row.pct }}% ({{ row.count }} patients)
+                            </span>
+                        </div>
+                        <div style="height:10px;background:#e2e8f0;border-radius:5px;">
+                            <div style="width:{{ row.pct }}%;max-width:100%;height:10px;border-radius:5px;background:{% if row.pct >= 30 %}#dc2626{% elif row.pct >= 15 %}#d97706{% else %}#15803d{% endif %};transition:width 0.4s;"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-muted">No patient health metrics recorded yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    Management Analytics Dashboard for early detection of lifestyle disorders and hospital operations monitoring.
+</footer>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    const chartData = {{ chart_data | tojson }};
+
+    const createBar = (id, labels, datasets, horizontal = false) => {
+        new Chart(document.getElementById(id), {
+            type: 'bar',
+            data: { labels, datasets },
+            options: {
+                indexAxis: horizontal ? 'y' : 'x',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'top' } },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    };
+
+    createBar(
+        'hospitalComparisonChart',
+        chartData.hospital_labels,
+        [
+            { label: 'Patients', data: chartData.hospital_patient_counts, backgroundColor: '#1d4ed8' },
+            { label: 'Doctors', data: chartData.hospital_doctor_counts, backgroundColor: '#0f766e' },
+            { label: 'High Risk Cases', data: chartData.hospital_high_risk_counts, backgroundColor: '#b91c1c' }
+        ]
+    );
+
+    new Chart(document.getElementById('riskDistributionChart'), {
+        type: 'doughnut',
+        data: {
+            labels: chartData.risk_labels,
+            datasets: [{
+                data: chartData.risk_values,
+                backgroundColor: ['#16a34a', '#f59e0b', '#dc2626'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } }
+        }
+    });
+
+    new Chart(document.getElementById('stressSleepChart'), {
+        type: 'line',
+        data: {
+            labels: chartData.stress_sleep_hospitals,
+            datasets: [
+                {
+                    label: 'Avg Stress',
+                    data: chartData.stress_values,
+                    borderColor: '#dc2626',
+                    backgroundColor: 'rgba(220, 38, 38, 0.2)',
+                    tension: 0.3
+                },
+                {
+                    label: 'Avg Sleep Quality',
+                    data: chartData.sleep_quality_values,
+                    borderColor: '#0ea5e9',
+                    backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                    tension: 0.3
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    createBar(
+        'doctorWorkloadChart',
+        chartData.doctor_workload_labels,
+        [
+            { label: 'Assigned Patients', data: chartData.doctor_patient_counts, backgroundColor: '#475569' },
+            { label: 'High-Risk Patients', data: chartData.doctor_high_risk_counts, backgroundColor: '#be123c' }
+        ],
+        true
+    );
+
+    new Chart(document.getElementById('activityDistributionChart'), {
+        type: 'polarArea',
+        data: {
+            labels: chartData.activity_labels,
+            datasets: [{
+                data: chartData.activity_values,
+                backgroundColor: ['#0f766e', '#0ea5e9', '#a855f7', '#f59e0b', '#ef4444', '#64748b']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    new Chart(document.getElementById('sedentaryTrendChart'), {
+        type: 'line',
+        data: {
+            labels: chartData.sedentary_labels,
+            datasets: [{
+                label: 'Sedentary Rate %',
+                data: chartData.sedentary_values,
+                borderColor: '#ea580c',
+                backgroundColor: 'rgba(234, 88, 12, 0.2)',
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { beginAtZero: true, max: 100 }
+            }
+        }
+    });
+
+    createBar(
+        'xaiChart',
+        chartData.xai_features,
+        [{ label: 'Influence Score', data: chartData.xai_scores, backgroundColor: '#7c3aed' }],
+        true
+    );
+
+    new Chart(document.getElementById('sourceMixChart'), {
+        type: 'pie',
+        data: {
+            labels: chartData.source_labels,
+            datasets: [{
+                data: chartData.source_counts,
+                backgroundColor: ['#0284c7', '#334155', '#9333ea', '#94a3b8']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } }
+        }
+    });
+
+    // Population Risk Factor Prevalence chart
+    if (chartData.pop_factor_labels && chartData.pop_factor_labels.length) {
+        new Chart(document.getElementById('popRiskFactorChart'), {
+            type: 'bar',
+            data: {
+                labels: chartData.pop_factor_labels,
+                datasets: [{
+                    label: '% of Patients Affected',
+                    data: chartData.pop_factor_values,
+                    backgroundColor: chartData.pop_factor_values.map(v =>
+                        v >= 30 ? '#dc2626' : v >= 15 ? '#d97706' : '#15803d'
+                    ),
+                    borderRadius: 6,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ` ${ctx.parsed.x}% of patients`
+                        }
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true, max: 100, title: { display: true, text: '% of Patients' } }
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

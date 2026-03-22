@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dataset Preview | PulseAnalysis AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700;900&family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons & Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --neta-navy: #1E3A8A;
+            --neta-gold: #B59410;
+            --bg-soft: #f8fafc;
+            --text-dark: #0F172A;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background: url("/static/img/2.jpg") center/cover fixed;
+            min-height: 100vh;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: var(--neta-navy);
+            padding-top: 80px;
+            transition: 0.3s;
+            z-index: 2000;
+        }
+        .sidebar.active { left: 0; }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: rgba(255,255,255,0.85);
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: 500;
+            border-left: 4px solid transparent;
+        }
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255,255,255,0.1);
+            color: var(--neta-gold);
+            border-left: 4px solid var(--neta-gold);
+        }
+        .sidebar i { width: 28px; }
+
+        /* ---------- Navbar ---------- */
+        .navbar {
+            background: white;
+            border-bottom: 2px solid var(--neta-navy);
+            padding: 12px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .hamburger {
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--neta-navy);
+            margin-right: 15px;
+        }
+
+        /* ---------- Page Header ---------- */
+        .page-header {
+            background: white;
+            padding: 35px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 900;
+            color: var(--neta-navy);
+        }
+
+        /* ---------- Content Card ---------- */
+        .content-card {
+            background: white;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        /* ---------- Table ---------- */
+        .table-container {
+            max-height: 500px;
+            overflow-y: auto;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        thead {
+            background: var(--neta-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tbody tr:hover {
+            background: #eef2ff;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 80px;
+            padding: 30px 0;
+            background: white;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <link href='/static/css/role-theme.css' rel='stylesheet'>
+</head>
+
+<body class="role-management">
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="/AdminHome"><i class="fas fa-th-large"></i> Dashboard</a>
+    <a href="/ManageUsers"><i class="fas fa-users-cog"></i> Manage Users</a>
+    <a href="/Upload"><i class="fas fa-cloud-upload-alt"></i> Upload Dataset</a>
+    <a href="/preprocess"><i class="fas fa-cogs"></i> Preprocessing</a>
+    <a href="/trainmodels"><i class="fas fa-brain"></i> Train Models</a>
+    <a href="/comparison"><i class="fas fa-chart-bar"></i> Comparison</a>
+    <div style="margin-top:40px;border-top:1px solid rgba(255,255,255,0.15)">
+        <a href="/adminlogin"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <span class="navbar-brand mb-0 h1" style="font-family:'Crimson Pro';font-weight:900;color:var(--neta-navy);">
+                PULSE ANALYSIS <span style="color:var(--neta-gold)">AI</span>
+            </span>
+        </div>
+        <a href="/adminlogin" class="btn btn-sm btn-danger">
+            <i class="fas fa-power-off me-1"></i> Logout
+        </a>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="page-header">
+    <div class="container">
+        <h1>Dataset Preview</h1>
+        <p class="text-muted mb-0">Review uploaded dataset records</p>
+    </div>
+</header>
+
+<!-- Main -->
+<main class="container mb-5">
+    <div class="content-card">
+        <div class="text-center mb-4">
+            <h4 style="font-family:'Crimson Pro';color:var(--neta-navy);font-weight:700;">
+                Uploaded Dataset Snapshot
+            </h4>
+            <p class="text-muted">
+                Below is a preview of the uploaded dataset for validation.
+            </p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in columns %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        {% for cell in row %}
+                        <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2025 PulseAnalysis AI | Dataset Validation & Analysis
+</footer>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

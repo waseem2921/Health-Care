@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Model Comparison | PulseAnalysis AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700;900&family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons & Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #1E3A8A;
+            --gold: #B59410;
+            --bg-soft: #f8fafc;
+            --border: #e2e8f0;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background: url("/static/img/2.jpg") center/cover fixed;
+            min-height: 100vh;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: var(--navy);
+            padding-top: 90px;
+            transition: 0.3s;
+            z-index: 3000;
+        }
+        .sidebar.active { left: 0; }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            border-left: 4px solid transparent;
+        }
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255,255,255,0.1);
+            color: var(--gold);
+            border-left: 4px solid var(--gold);
+        }
+        .sidebar i { width: 28px; }
+
+        /* ---------- Navbar ---------- */
+        .navbar {
+            background: white;
+            border-bottom: 2px solid var(--navy);
+            padding: 12px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .hamburger {
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--navy);
+            margin-right: 15px;
+        }
+
+        /* ---------- Page Header ---------- */
+        .page-header {
+            background: white;
+            padding: 35px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 900;
+            color: var(--navy);
+        }
+
+        /* ---------- Content Card ---------- */
+        .content-card {
+            background: white;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            padding: 45px;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .graph-image {
+            max-width: 100%;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 30px 0;
+            background: white;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <link href='/static/css/role-theme.css' rel='stylesheet'>
+</head>
+
+<body class="role-management">
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="/AdminHome"><i class="fas fa-th-large"></i> Dashboard</a>
+    <a href="/Upload"><i class="fas fa-cloud-upload-alt"></i> Upload Dataset</a>
+    <a href="/preprocess"><i class="fas fa-cogs"></i> Preprocessing</a>
+    <a href="/trainmodels"><i class="fas fa-brain"></i> Train Models</a>
+    <a href="/comparison" class="active"><i class="fas fa-chart-bar"></i> Comparison</a>
+    <div style="margin-top:40px;border-top:1px solid rgba(255,255,255,0.15)">
+        <a href="/adminlogin"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <span class="navbar-brand mb-0 h1"
+                  style="font-family:'Crimson Pro';font-weight:900;color:var(--navy);">
+                PULSE ANALYSIS <span style="color:var(--gold)">AI</span>
+            </span>
+        </div>
+        <span class="text-muted">Model Performance Comparison</span>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="page-header">
+    <div class="container">
+        <h1>Algorithm Accuracy Comparison</h1>
+        <p class="text-muted mb-0">
+            Visual comparison of machine learning model performance
+        </p>
+    </div>
+</header>
+
+<!-- Main -->
+<main class="container mb-5">
+    <div class="content-card">
+        {% if error %}
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <strong>Warning:</strong> {{ error }}
+        </div>
+        <div class="mt-4">
+            <a href="/trainmodels" class="btn btn-primary">
+                <i class="fas fa-brain me-2"></i>Train Models Now
+            </a>
+        </div>
+        {% elif has_data %}
+        <img src="{{ url_for('static', filename='model_accuracy.png') }}"
+             alt="Model Accuracy Graph"
+             class="graph-image">
+
+        <p class="mt-4 text-muted">
+            The above chart compares the accuracy of <b>XGBoost</b>, <b>Random Forest</b>,
+            and <b>Decision Tree</b> models trained on the dataset.
+        </p>
+        {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Info:</strong> Please train models first to view comparison graph.
+        </div>
+        <div class="mt-4">
+            <a href="/trainmodels" class="btn btn-primary">
+                <i class="fas fa-brain me-2"></i>Train Models Now
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</main>
+
+<footer>
+    © 2025 PulseAnalysis AI | Explainable Machine Learning Platform
+</footer>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

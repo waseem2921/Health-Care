@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+/* Unified visual layer aligned with landing page design */
+:root {
+    --app-ink-900: #0f172a;
+    --app-ink-700: #334155;
+    --app-ink-500: #64748b;
+    --app-line: #dbe5ef;
+    --app-surface: #ffffff;
+    --app-surface-soft: #f8fafc;
+    --app-primary: #2563eb;
+    --app-primary-2: #0ea5a4;
+    --app-doctor: #7c3aed;
+    --app-doctor-2: #a855f7;
+    --app-admin: #f97316;
+    --app-admin-2: #fb923c;
+    --app-shadow: 0 18px 44px rgba(15, 23, 42, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--app-ink-700);
+    background:
+        radial-gradient(circle at 8% 0%, rgba(14, 165, 164, 0.2), transparent 44%),
+        radial-gradient(circle at 92% 8%, rgba(124, 58, 237, 0.13), transparent 42%),
+        linear-gradient(180deg, #edf5ff 0%, #f9fbff 36%, #eef8f6 100%) !important;
+    min-height: 100vh;
+}
+
+body.role-doctor {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(124, 58, 237, 0.2), transparent 44%),
+        radial-gradient(circle at 92% 10%, rgba(168, 85, 247, 0.11), transparent 42%),
+        linear-gradient(180deg, #f5f0ff 0%, #f9f8ff 42%, #f3f2ff 100%) !important;
+}
+
+body.role-management {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(249, 115, 22, 0.18), transparent 42%),
+        radial-gradient(circle at 92% 10%, rgba(251, 146, 60, 0.11), transparent 42%),
+        linear-gradient(180deg, #fff5eb 0%, #fffaf5 42%, #fff7ed 100%) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.logo,
+.brand,
+.form-title,
+.section-title {
+    color: var(--app-ink-900);
+    letter-spacing: 0.01em;
+    font-family: 'Space Grotesk', 'Manrope', sans-serif !important;
+}
+
+a {
+    color: var(--app-primary);
+}
+
+a:hover {
+    color: #1d4ed8;
+}
+
+.navbar,
+.topbar,
+.header,
+.page-header {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+}
+
+.page-header {
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.container,
+.container-fluid {
+    position: relative;
+}
+
+.sidebar {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 8px 0 30px rgba(15, 23, 42, 0.35) !important;
+}
+
+.sidebar a {
+    border-radius: 0 12px 12px 0;
+    margin: 3px 10px 3px 0;
+}
+
+body.role-patient .sidebar {
+    background: linear-gradient(165deg, #0f2d6b, #0f4c9a 42%, #0a7e84 100%) !important;
+}
+
+body.role-patient .patient-accent-header {
+    background: linear-gradient(105deg, #0ea5a4, #2563eb) !important;
+    color: #ffffff !important;
+}
+
+body.role-patient .patient-accent-header-alt {
+    background: linear-gradient(105deg, #1e3a8a, #0f766e) !important;
+    color: #ffffff !important;
+}
+
+body.role-patient .patient-accent-header-danger {
+    background: linear-gradient(105deg, #dc2626, #b91c1c) !important;
+    color: #ffffff !important;
+}
+
+body.role-doctor .sidebar {
+    background: linear-gradient(165deg, #4b1d95, #6d28d9 45%, #8b5cf6 100%) !important;
+}
+
+body.role-management .sidebar {
+    background: linear-gradient(165deg, #9a3412, #c2410c 45%, #f97316 100%) !important;
+}
+
+.card,
+.info-card,
+.panel,
+.widget,
+.stat-card,
+.metric-card,
+.metric-tile,
+.form-card,
+.table-wrap,
+.table-container,
+.content-card,
+.login-container,
+.dashboard-card,
+.login-card {
+    background: var(--app-surface) !important;
+    border: 1px solid var(--app-line) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, 0.1);
+}
+
+.login-card,
+.panel,
+.content-card,
+.metric-tile {
+    animation: appFadeUp 0.55s ease both;
+}
+
+.login-visual {
+    border-right: none !important;
+    color: #fff !important;
+}
+
+body.role-patient .login-visual {
+    background: linear-gradient(165deg, #0f2d6b, #2563eb 45%, #0ea5a4 100%) !important;
+}
+
+body.role-doctor .login-visual {
+    background: linear-gradient(165deg, #4b1d95, #7c3aed 50%, #a855f7 100%) !important;
+}
+
+body.role-management .login-visual {
+    background: linear-gradient(165deg, #9a3412, #f97316 50%, #fb923c 100%) !important;
+}
+
+.btn,
+button,
+input[type="submit"] {
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    transition: 0.22s ease !important;
+}
+
+.btn-primary,
+.btn-success,
+.btn-info {
+    border: none !important;
+    background: linear-gradient(105deg, var(--app-primary-2), var(--app-primary)) !important;
+    color: #fff !important;
+}
+
+body.role-doctor .btn-primary,
+body.role-doctor .btn-success,
+body.role-doctor .btn-info {
+    background: linear-gradient(105deg, var(--app-doctor), var(--app-doctor-2)) !important;
+}
+
+body.role-management .btn-primary,
+body.role-management .btn-success,
+body.role-management .btn-info {
+    background: linear-gradient(105deg, var(--app-admin), var(--app-admin-2)) !important;
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+.btn-info:hover,
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+}
+
+.btn-warning,
+.btn-danger {
+    border: none !important;
+    color: #fff !important;
+}
+
+input,
+select,
+textarea,
+.form-control {
+    border-radius: 11px !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.form-control:focus {
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2) !important;
+}
+
+table,
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.table th {
+    color: var(--app-ink-900);
+    background: #eef4ff;
+    border-bottom: 1px solid var(--app-line);
+    font-weight: 700;
+}
+
+body.role-doctor .table th {
+    background: #f4eeff;
+}
+
+body.role-management .table th {
+    background: #fff2e9;
+}
+
+.table td {
+    border-bottom: 1px solid #eef2f7;
+}
+
+.alert,
+.badge {
+    border-radius: 11px;
+}
+
+.graph-image,
+img.img-fluid.rounded,
+.img-fluid.rounded.border {
+    border-radius: 14px !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+.footer,
+footer {
+    color: var(--app-ink-500);
+}
+
+@keyframes appFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .card,
+    .info-card,
+    .panel,
+    .widget,
+    .stat-card,
+    .metric-card,
+    .metric-tile,
+    .form-card,
+    .table-wrap,
+    .table-container,
+    .content-card,
+    .login-container,
+    .dashboard-card,
+    .login-card {
+        border-radius: 13px !important;
+    }
+}

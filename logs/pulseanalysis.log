@@ -1,0 +1,398 @@
+[INFO] 2026-03-22 12:35:11 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:43:04 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:43:07 basehttp log_message:213 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-22 12:43:09 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:43:18 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-22 12:43:20 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32052
+[INFO] 2026-03-22 12:43:29 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[ERROR] 2026-03-22 12:43:56 log log_response:253 - Internal Server Error: /UserAction
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2088, in user_action
+    patient = Patient.objects.filter(username=username, password=password).first()
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+               ~~~~~~~~^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-22 12:43:56 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 500 145
+[INFO] 2026-03-22 12:44:01 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:44:01 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:44:02 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[ERROR] 2026-03-22 12:44:07 log log_response:253 - Internal Server Error: /UserAction
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2088, in user_action
+    patient = Patient.objects.filter(username=username, password=password).first()
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+               ~~~~~~~~^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-22 12:44:07 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 500 145
+[INFO] 2026-03-22 12:44:16 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:44:19 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[ERROR] 2026-03-22 12:44:24 log log_response:253 - Internal Server Error: /doctor/login/
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2801, in doctor_login
+    doctor = Doctor.objects.get(email=email, password=password)
+  File "D:\Python\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-22 12:44:24 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 500 145
+[INFO] 2026-03-22 12:45:56 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-22 12:45:58 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-22 12:46:12 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:46:40 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-22 12:46:54 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:47:26 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[WARNING] 2026-03-22 12:47:58 log log_message:249 - Forbidden (CSRF cookie not set.): /doctor/login/
+[WARNING] 2026-03-22 12:47:58 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 403 1367
+[INFO] 2026-03-22 12:49:16 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\pulseanalysis\settings.py changed, reloading.
+[INFO] 2026-03-22 12:49:17 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\pulseanalysis\settings.py changed, reloading.
+[INFO] 2026-03-22 12:49:17 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\pulseanalysis\settings.py changed, reloading.
+[INFO] 2026-03-22 12:49:19 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:49:21 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:49:21 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[ERROR] 2026-03-22 12:50:20 log log_message:249 - Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\http\request.py", line 205, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+[ERROR] 2026-03-22 12:50:20 log log_message:249 - Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\http\request.py", line 205, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+[INFO] 2026-03-22 12:51:02 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-22 12:51:03 basehttp handle_error:81 - - Broken pipe from ('127.0.0.1', 51424)
+[INFO] 2026-03-22 12:51:33 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:51:59 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 21126
+[INFO] 2026-03-22 12:52:05 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:52:10 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-22 12:52:10 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 22971
+[INFO] 2026-03-22 12:52:13 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:52:15 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-22 12:52:20 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-22 12:52:21 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-22 12:52:27 basehttp log_message:213 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-03-22 12:52:27 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-22 12:52:29 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-22 12:52:34 basehttp log_message:213 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-03-22 12:52:38 basehttp log_message:213 - "GET /management-analytics HTTP/1.1" 200 30359
+[INFO] 2026-03-22 12:53:13 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-22 12:53:26 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:53:44 basehttp log_message:213 - "GET /register HTTP/1.1" 200 11354
+[INFO] 2026-03-22 12:54:25 basehttp log_message:213 - "POST /RegAction HTTP/1.1" 200 11473
+[INFO] 2026-03-22 12:54:29 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:54:40 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-22 12:54:42 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 22961
+[INFO] 2026-03-22 12:54:48 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[ERROR] 2026-03-22 12:55:01 log log_response:253 - Internal Server Error: /UserAction
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2088, in user_action
+    patient = Patient.objects.filter(username=username, password=password).first()
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+               ~~~~~~~~^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-22 12:55:01 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 500 145
+[INFO] 2026-03-22 12:55:12 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:55:19 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 200 7907
+[INFO] 2026-03-22 12:55:26 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 200 7907
+[INFO] 2026-03-22 12:55:31 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-22 12:55:36 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-22 12:55:36 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-22 12:59:12 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 12:59:21 basehttp log_message:213 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-22 12:59:23 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-03-22 12:59:31 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 200 7907
+[INFO] 2026-03-22 12:59:41 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 200 7907
+[INFO] 2026-03-22 12:59:50 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 200 7907
+[INFO] 2026-03-22 12:59:58 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 200 7907
+[INFO] 2026-03-22 13:00:36 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 13:01:05 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-22 13:01:07 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 22961
+[INFO] 2026-03-22 13:10:36 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-22 13:10:43 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 21126
+[INFO] 2026-03-22 13:10:48 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 13:10:54 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-22 13:10:54 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 22961
+[INFO] 2026-03-22 13:11:00 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-22 13:11:08 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-22 13:11:08 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32052

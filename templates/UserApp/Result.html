@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Prediction Result | PulseAnalysis AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700;900&family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons & Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --navy: #1E3A8A;
+            --gold: #B59410;
+            --border: #e2e8f0;
+            --bg-soft: #f8fafc;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background: transparent;
+            min-height: 100vh;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: var(--navy);
+            padding-top: 90px;
+            transition: 0.3s;
+            z-index: 3000;
+        }
+        .sidebar.active { left: 0; }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            border-left: 4px solid transparent;
+        }
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255,255,255,0.1);
+            color: var(--gold);
+            border-left: 4px solid var(--gold);
+        }
+        .sidebar i { width: 28px; }
+
+        /* ---------- Navbar ---------- */
+        .navbar {
+            background: white;
+            border-bottom: 2px solid var(--navy);
+            padding: 12px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .hamburger {
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--navy);
+            margin-right: 15px;
+        }
+
+        /* ---------- Page Header ---------- */
+        .page-header {
+            background: white;
+            padding: 35px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 900;
+            color: var(--navy);
+        }
+
+        /* ---------- Result Card ---------- */
+        .result-card {
+            background: white;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            padding: 45px;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+        }
+
+        .risk-low { color: #198754; }
+        .risk-moderate { color: #ffc107; }
+        .risk-high { color: #dc3545; }
+
+        .probability-badge {
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.6em 1em;
+            border-radius: 8px;
+        }
+
+        .assistant-launcher {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 58px;
+            height: 58px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #1E3A8A, #3456b4);
+            color: #fff;
+            box-shadow: 0 14px 30px rgba(30, 58, 138, 0.35);
+            z-index: 3200;
+        }
+
+        .assistant-panel {
+            position: fixed;
+            right: 24px;
+            bottom: 94px;
+            width: min(390px, calc(100vw - 32px));
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 24px 45px rgba(15, 23, 42, 0.24);
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(18px) scale(0.98);
+            transition: 0.2s ease;
+            z-index: 3200;
+        }
+
+        .assistant-panel.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .assistant-header {
+            padding: 14px 16px;
+            color: #fff;
+            background: linear-gradient(145deg, #1E3A8A, #3456b4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .assistant-header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .assistant-close {
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+        }
+
+        .chat-history {
+            max-height: 320px;
+            overflow-y: auto;
+            padding: 14px;
+            background: #f8fafc;
+        }
+
+        .chat-message {
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-width: 92%;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .chat-message.user {
+            margin-left: auto;
+            background: #dbeafe;
+        }
+
+        .chat-message.bot {
+            margin-right: auto;
+            background: #e2e8f0;
+        }
+
+        .chat-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .chip {
+            font-size: 0.78rem;
+            padding: 4px 10px;
+            border: 1px solid #93c5fd;
+            border-radius: 20px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            cursor: pointer;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 14px;
+        }
+
+        .typing-indicator span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #6b7280;
+            animation: bounce 1.2s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-6px); }
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 30px 0;
+            background: white;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+    </style>
+
+    <link href='/static/css/role-theme.css' rel='stylesheet'>
+</head>
+
+<body class="role-patient">
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="/UserHome"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="/Detect" class="active"><i class="fas fa-heartbeat"></i> Run Prediction</a>
+    <div style="margin-top:40px;border-top:1px solid rgba(255,255,255,0.15)">
+        <a href="/userlogin"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <span class="navbar-brand mb-0 h1"
+                  style="font-family:'Crimson Pro';font-weight:900;color:var(--navy);">
+                PULSE ANALYSIS <span style="color:var(--gold)">AI</span>
+            </span>
+        </div>
+        <span class="text-muted">Prediction Summary</span>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="page-header">
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <p class="text-muted mb-0">Explainable health risk assessment outcome</p>
+    </div>
+</header>
+<!-- Main -->
+<main class="container mb-5">
+    <div class="result-card">
+
+        {% if show_result %}
+
+        <!-- ===== Prediction ===== -->
+        <div class="alert alert-{{ badge }} text-center">
+            <h3 class="mb-2">{{ prediction }}</h3>
+            <p class="mb-0">Confidence Level: <strong>{{ probability }}</strong></p>
+        </div>
+
+        <div class="row g-3 mt-1 text-center">
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="text-muted small text-uppercase">Risk Score</div>
+                        <div class="fs-2 fw-bold">{{ '%.1f'|format(risk_score) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="text-muted small text-uppercase">Priority</div>
+                        <div class="fs-2 fw-bold">{{ priority }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="text-muted small text-uppercase">Recovery Score</div>
+                        <div class="fs-2 fw-bold">{{ '%.1f'|format(nervous_system_recovery_score) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="text-muted small text-uppercase">Data Source</div>
+                        <div class="fw-bold">{{ data_source }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-1 text-center">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="text-muted small text-uppercase">Assigned Doctor</div>
+                        <div class="fw-bold">{% if doctor %}Dr. {{ doctor.name }}{% else %}Not assigned{% endif %}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="text-muted small text-uppercase">Detected Risk Type</div>
+                        <div class="fw-bold">{{ disease_name }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- ===== Recommendation ===== -->
+        <div class="text-center">
+            <h5 class="mb-2">📌 Personalized Recommendation</h5>
+            <p class="text-muted">{{ recommendations }}</p>
+        </div>
+
+        <div class="alert alert-secondary mt-4">
+            <h6 class="fw-bold mb-2">Readable Clinical Explanation</h6>
+            <p class="mb-0">{{ explanation_text }}</p>
+        </div>
+
+        <div class="row g-4 mt-1">
+            <div class="col-lg-6">
+                <div class="alert alert-info h-100 mb-0">
+                    <h6 class="fw-bold mb-2">Nervous System Recovery Insight</h6>
+                    <div class="mb-2"><strong>Recovery Score:</strong> {{ '%.1f'|format(nervous_system_recovery_score) }}/100</div>
+                    <p class="mb-0">{{ nervous_system_explanation }}</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="alert alert-warning h-100 mb-0">
+                    <h6 class="fw-bold mb-2">Stress-Sleep Interaction</h6>
+                    <p class="mb-0">{{ stress_sleep_patient_insight }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header patient-accent-header-alt">
+                        <h6 class="mb-0">Main Risk Factors</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            {% for factor in risk_factors %}
+                            <li>{{ factor|capitalize }}</li>
+                            {% else %}
+                            <li>No dominant factor cluster detected.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header patient-accent-header">
+                        <h6 class="mb-0">Lifestyle Recommendations</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            {% for recommendation in lifestyle_recommendations_list %}
+                            <li>{{ recommendation }}</li>
+                            {% else %}
+                            <li>Continue regular monitoring to maintain current health trends.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-light border mt-4">
+            <h6 class="fw-bold mb-2">Explainable AI Summary</h6>
+            <p class="mb-0">{{ readable_ai_explanation }}</p>
+        </div>
+
+        <div class="alert alert-light border mt-4">
+            <h6 class="fw-bold mb-2">Recommended Follow-Up Tests</h6>
+            <div class="d-flex flex-wrap gap-2">
+                {% for test_name in suggested_tests %}
+                <span class="badge bg-light text-dark border">{{ test_name }}</span>
+                {% else %}
+                <span class="text-muted">No additional tests recommended from the latest run.</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- ===== AI Explanation Section ===== -->
+        <div class="mt-5">
+            <h4 class="mb-4 text-center">
+                <i class="fas fa-brain text-primary me-2"></i>
+                Why This Prediction? - AI Explanation
+            </h4>
+            <p class="text-muted text-center mb-4">
+                Understand which factors influenced your risk assessment using explainable AI
+            </p>
+
+            <!-- SHAP Feature Importance -->
+            {% if shap_bar_file %}
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Feature Impact Analysis (SHAP)</h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">
+                        This chart shows which health factors most influenced your prediction. 
+                        <strong>Green bars</strong> indicate factors that reduce risk, 
+                        <strong>Red bars</strong> indicate factors that increase risk.
+                    </p>
+                    <img src="/static/{{ shap_bar_file }}" class="img-fluid rounded border" alt="SHAP Feature Importance">
+                    
+                    {% if feature_importance %}
+                    <div class="mt-4">
+                        <h6>Top Contributing Factors:</h6>
+                        <div class="row mt-3">
+                            {% for feature in feature_importance[:6] %}
+                            <div class="col-md-6 mb-2">
+                                <div class="d-flex justify-content-between align-items-center p-2 rounded" 
+                                     style="background-color: {% if feature.SHAP_Value > 0 %}#d4edda{% else %}#f8d7da{% endif %};">
+                                    <span><strong>{{ feature.Feature.replace('_', ' ').title() }}</strong></span>
+                                    <span class="badge {% if feature.SHAP_Value > 0 %}bg-success{% else %}bg-danger{% endif %}">
+                                        {{ "%.2f"|format(feature.SHAP_Value) }}
+                                    </span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- LIME Explanation -->
+            {% if lime_explanation %}
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Local Explanation (LIME)</h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">
+                        LIME explains your specific prediction by showing which features contributed most 
+                        to this particular result.
+                    </p>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Impact</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for feature, value in lime_explanation[:10] %}
+                                <tr>
+                                    <td><strong>{{ feature.replace('_', ' ').title() }}</strong></td>
+                                    <td>
+                                        <span class="badge {% if value > 0 %}bg-danger{% else %}bg-success{% endif %}">
+                                            {{ "%.3f"|format(value) }}
+                                        </span>
+                                    </td>
+                                    <td class="text-muted">
+                                        {% if feature in input_data %}
+                                            {{ input_data[feature] }}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    {% if lime_file %}
+                    <div class="text-center mt-3">
+                        <a href="/static/{{ lime_file }}" target="_blank" class="btn btn-info">
+                            <i class="fas fa-external-link-alt me-2"></i>View Detailed LIME Explanation
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Explanation Summary -->
+            <div class="alert alert-info">
+                <h6><i class="fas fa-info-circle me-2"></i>Understanding the Explanations:</h6>
+                <ul class="mb-0">
+                    <li><strong>SHAP Values:</strong> Show the overall impact of each feature on your prediction</li>
+                    <li><strong>LIME:</strong> Explains why this specific prediction was made for your data</li>
+                    <li><strong>Positive Values:</strong> Increase risk | <strong>Negative Values:</strong> Decrease risk</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-4">
+        <h4 class="mb-4" style="font-family:'Crimson Pro',serif;color:var(--navy);font-weight:700;">
+            <i class="fas fa-chart-line me-2"></i>7-Day Health Metrics
+        </h4>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header fw-bold patient-accent-header-alt">
+                        <i class="fas fa-shoe-prints me-2"></i>Steps per Day
+                    </div>
+                    <div class="card-body">
+                        <canvas id="stepsChart" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header fw-bold patient-accent-header">
+                        <i class="fas fa-fire me-2"></i>Calories Burned
+                    </div>
+                    <div class="card-body">
+                        <canvas id="caloriesChart" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header fw-bold patient-accent-header-alt">
+                        <i class="fas fa-heartbeat me-2"></i>Heart Rate (BPM)
+                    </div>
+                    <div class="card-body">
+                        <canvas id="heartRateChart" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header fw-bold patient-accent-header">
+                        <i class="fas fa-moon me-2"></i>Sleep Duration (hours)
+                    </div>
+                    <div class="card-body">
+                        <canvas id="sleepChart" height="140"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm p-3" style="background:#f8fafc;">
+                    <h6 class="fw-bold mb-3" style="color:var(--navy);">Summary Averages (7-Day)</h6>
+                    <div class="d-flex justify-content-around text-center">
+                        <div>
+                            <div class="fs-4 fw-bold" style="color:var(--navy);">{{ steps|int }}</div>
+                            <div class="text-muted small">Avg Steps/Day</div>
+                        </div>
+                        <div>
+                            <div class="fs-4 fw-bold" style="color:#B59410;">{{ calories|int }}</div>
+                            <div class="text-muted small">Avg Cal/Day</div>
+                        </div>
+                        <div>
+                            <div class="fs-4 fw-bold" style="color:#0d6efd;">{{ sleep }}</div>
+                            <div class="text-muted small">Sleep Hours</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header fw-bold patient-accent-header-danger">
+                        <i class="fas fa-wave-square me-2"></i>Stress Level
+                    </div>
+                    <div class="card-body">
+                        <canvas id="stressChart" height="140"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===== Disclaimer ===== -->
+        <p class="text-muted small text-center">
+            This prediction is generated using machine learning models trained on
+            wearable and lifestyle health indicators.
+            <br>
+            <strong>This system supports decision-making and is not a medical diagnosis.</strong>
+        </p>
+
+        <!-- ===== Action Button ===== -->
+        <div class="text-center mt-4">
+            <a href="/Detect" class="btn btn-primary px-5 py-3">
+                <i class="fas fa-redo-alt me-2"></i> Run New Prediction
+            </a>
+        </div>
+
+        {% else %}
+
+        <!-- ===== No Prediction State ===== -->
+        <div class="text-center text-muted">
+            {% if error %}
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>Error:</strong> {{ error }}
+            </div>
+            {% else %}
+            <h5>No prediction available</h5>
+            <p>Please submit your health data to generate a risk assessment.</p>
+            {% endif %}
+            <a href="/Detect" class="btn btn-outline-primary mt-3">
+                Go to Prediction Page
+            </a>
+        </div>
+
+        {% endif %}
+
+    </div>
+</main>
+
+{% if patient %}
+<button id="patientChatLauncher" class="assistant-launcher" type="button" aria-label="Open health assistant">
+    <i class="fas fa-comments"></i>
+</button>
+
+<aside id="patientAssistantPanel" class="assistant-panel" aria-live="polite">
+    <div class="assistant-header">
+        <div class="assistant-header-title">
+            <i class="fas fa-user-nurse"></i>
+            <span>PulseCare Assistant</span>
+        </div>
+        <button id="patientAssistantClose" class="assistant-close" type="button" aria-label="Close assistant">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div id="patientChatHistory" class="chat-history">
+        <div class="chat-message bot">Hi, my name is PulseCare Assistant. I can explain this prediction result, your risk factors, and what to improve next. What would you like to know?</div>
+        <div class="chat-chips">
+            <button class="chip" data-q="Why is my lifestyle disorder risk high?">Why this risk?</button>
+            <button class="chip" data-q="What is SHAP?">What is SHAP?</button>
+            <button class="chip" data-q="How is my sleep?">Sleep</button>
+            <button class="chip" data-q="Why is my stress high?">Stress</button>
+            <button class="chip" data-q="How can I improve my health?">Advice</button>
+        </div>
+    </div>
+    <div class="p-3 bg-white border-top">
+        <div class="input-group">
+            <input id="patientChatInput" type="text" class="form-control" placeholder="Ask about this prediction or your health metrics">
+            <button id="patientChatSend" class="btn btn-primary" type="button">Send</button>
+        </div>
+    </div>
+</aside>
+{% endif %}
+
+
+<br><br><br><br><br>
+<footer>
+    © 2025 PulseAnalysis AI | Explainable Machine Learning Platform
+</footer>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// ---------- 7-day data from Google Fit (empty if manual entry) ----------
+const dayLabels    = {{ day_labels    | default([]) | tojson }};
+const dailySteps   = {{ daily_steps   | default([]) | tojson }};
+const dailyCals    = {{ daily_calories| default([]) | tojson }};
+const dailyHR      = {{ daily_heart_rate | default([]) | tojson }};
+const dailyStress  = {{ daily_stress | default([]) | tojson }};
+
+// ---------- single-value fallbacks (always present) ----------
+const stepsAvg    = Number("{{ steps|default(0) }}")    || 0;
+const calsAvg     = Number("{{ calories|default(0) }}") || 0;
+const sleepVal    = Number("{{ sleep|default(0) }}")    || 0;
+const stressVal   = Number("{{ stress_level|default(0) }}") || 0;
+
+const has7Day = dayLabels.length > 0;
+
+// shared Chart.js defaults
+const barOpts = (title) => ({
+    responsive: true,
+    plugins: {
+        legend: { display: false },
+        title:  { display: !!title, text: title, font: { size: 12 } }
+    },
+    scales: { y: { beginAtZero: true } }
+});
+
+// Steps chart
+const stepsCanvas = document.getElementById("stepsChart");
+if (stepsCanvas) {
+    new Chart(stepsCanvas, {
+        type: "bar",
+        data: {
+            labels: has7Day ? dayLabels : ["Avg Steps"],
+            datasets: [{
+                label: "Steps",
+                data:  has7Day ? dailySteps : [stepsAvg],
+                backgroundColor: "rgba(30,58,138,0.75)",
+                borderColor: "#1E3A8A",
+                borderWidth: 1,
+                borderRadius: 4,
+            }]
+        },
+        options: barOpts(has7Day ? "Past 7 Days" : "")
+    });
+}
+
+// Calories chart
+const caloriesCanvas = document.getElementById("caloriesChart");
+if (caloriesCanvas) {
+    new Chart(caloriesCanvas, {
+        type: "bar",
+        data: {
+            labels: has7Day ? dayLabels : ["Avg Calories"],
+            datasets: [{
+                label: "Calories",
+                data:  has7Day ? dailyCals : [calsAvg],
+                backgroundColor: "rgba(181,148,16,0.75)",
+                borderColor: "#B59410",
+                borderWidth: 1,
+                borderRadius: 4,
+            }]
+        },
+        options: barOpts(has7Day ? "Past 7 Days" : "")
+    });
+}
+
+// Heart Rate chart (7-day line from Google Fit, or static BPM if no daily data)
+const heartRateCanvas = document.getElementById("heartRateChart");
+if (heartRateCanvas) {
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    const hrLabels  = has7Day ? dayLabels : ["Resting HR"];
+    new Chart(heartRateCanvas, {
+        type: "line",
+        data: {
+            labels: hrLabels,
+            datasets: [{
+                label: "Heart Rate (BPM)",
+                data:  hrData,
+                borderColor: "#0d6efd",
+                backgroundColor: "rgba(13,110,253,0.1)",
+                borderWidth: 2,
+                pointRadius: 4,
+                tension: 0.3,
+                spanGaps: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false }, title: { display: has7Day, text: "Past 7 Days", font: { size: 12 } } },
+            scales: { y: { beginAtZero: false } }
+        }
+    });
+}
+
+// Sleep chart (manually entered single value – no 7-day data)
+const sleepCanvas = document.getElementById("sleepChart");
+if (sleepCanvas) {
+    new Chart(sleepCanvas, {
+        type: "bar",
+        data: {
+            labels: ["Sleep Duration"],
+            datasets: [{
+                label: "Hours",
+                data:  [sleepVal],
+                backgroundColor: "rgba(25,135,84,0.75)",
+                borderColor: "#198754",
+                borderWidth: 1,
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, max: 12,
+                ticks: { callback: v => v + "h" } } }
+        }
+    });
+}
+
+const stressCanvas = document.getElementById("stressChart");
+if (stressCanvas) {
+    new Chart(stressCanvas, {
+        type: has7Day && dailyStress.length ? "line" : "bar",
+        data: {
+            labels: has7Day && dailyStress.length ? dayLabels : ["Stress Level"],
+            datasets: [{
+                label: "Stress",
+                data: has7Day && dailyStress.length ? dailyStress : [stressVal],
+                borderColor: "#6f42c1",
+                backgroundColor: "rgba(111,66,193,0.2)",
+                borderWidth: 2,
+                borderRadius: 4,
+                tension: 0.3,
+                spanGaps: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, max: 10 } }
+        }
+    });
+}
+
+const patientChatHistory = document.getElementById('patientChatHistory');
+const patientChatInput = document.getElementById('patientChatInput');
+const patientChatSend = document.getElementById('patientChatSend');
+const patientChatLauncher = document.getElementById('patientChatLauncher');
+const patientAssistantPanel = document.getElementById('patientAssistantPanel');
+const patientAssistantClose = document.getElementById('patientAssistantClose');
+const patientId = Number("{{ patient.id if patient else 0 }}") || 0;
+
+function setPatientPanelOpen(openState) {
+    if (patientAssistantPanel) {
+        patientAssistantPanel.classList.toggle('open', openState);
+    }
+}
+
+function appendPatientChatMessage(message, role) {
+    if (!patientChatHistory) {
+        return;
+    }
+    const item = document.createElement('div');
+    item.className = 'chat-message ' + role;
+    item.textContent = message;
+    patientChatHistory.appendChild(item);
+    patientChatHistory.scrollTop = patientChatHistory.scrollHeight;
+}
+
+async function sendPatientChatMessage() {
+    if (!patientChatInput || !patientId) {
+        return;
+    }
+    const question = patientChatInput.value.trim();
+    if (!question) {
+        return;
+    }
+
+    appendPatientChatMessage(question, 'user');
+    patientChatInput.value = '';
+
+    const typingEl = document.createElement('div');
+    typingEl.className = 'chat-message bot typing-indicator';
+    typingEl.innerHTML = '<span></span><span></span><span></span>';
+    patientChatHistory.appendChild(typingEl);
+
+    try {
+        const response = await fetch('/chatbot/query/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, patient_id: patientId, user_role: 'patient' }),
+        });
+        typingEl.remove();
+        const data = await response.json();
+        appendPatientChatMessage(response.ok ? data.response : (data.error || 'Unable to process your question right now.'), 'bot');
+    } catch (error) {
+        typingEl.remove();
+        appendPatientChatMessage('Connection issue while contacting the health assistant.', 'bot');
+    }
+}
+
+if (patientChatLauncher) {
+    patientChatLauncher.addEventListener('click', function() {
+        const isOpen = patientAssistantPanel && patientAssistantPanel.classList.contains('open');
+        setPatientPanelOpen(!isOpen);
+    });
+}
+if (patientAssistantClose) {
+    patientAssistantClose.addEventListener('click', function() {
+        setPatientPanelOpen(false);
+    });
+}
+if (patientChatSend) {
+    patientChatSend.addEventListener('click', sendPatientChatMessage);
+}
+if (patientChatInput) {
+    patientChatInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            sendPatientChatMessage();
+        }
+    });
+}
+document.querySelectorAll('#patientAssistantPanel .chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+        patientChatInput.value = chip.getAttribute('data-q');
+        sendPatientChatMessage();
+    });
+});
+</script>
+</body>
+</html>

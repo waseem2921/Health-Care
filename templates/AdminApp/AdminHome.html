@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard | PulseAnalysis AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700;900&family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --neta-navy: #1E3A8A;
+            --neta-gold: #B59410;
+            --bg-light: #ffffff;
+            --bg-soft: #f8fafc;
+            --text-dark: #0F172A;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: var(--bg-soft);
+            background-image:  url("/static/img/2.jpg");
+            background-size: cover, 30px 30px, cover;
+    background-position: center, center, center;
+    background-repeat: no-repeat, repeat, no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: var(--neta-navy);
+            padding-top: 80px;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1999;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        }
+        .sidebar.active { left: 0; }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: rgba(255,255,255,0.8);
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            border-left: 4px solid transparent;
+        }
+        .sidebar i { width: 30px; font-size: 1.1rem; }
+        .sidebar a:hover, .sidebar a.active {
+            background: rgba(255,255,255,0.1);
+            color: var(--neta-gold);
+            border-left: 4px solid var(--neta-gold);
+        }
+
+        /* ---------- Navbar ---------- */
+        .navbar {
+            background: white;
+            border-bottom: 2px solid var(--neta-navy);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .hamburger {
+            cursor: pointer;
+            font-size: 1.4rem;
+            color: var(--neta-navy);
+            margin-right: 15px;
+        }
+
+        /* ---------- Header Buttons ---------- */
+        .header-nav-btn {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 7px 12px;
+            border: 1px solid var(--border-color);
+            color: var(--neta-navy);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .header-nav-btn:hover {
+            background: var(--neta-navy);
+            color: white;
+            border-color: var(--neta-navy);
+        }
+        .header-nav-btn.logout-btn {
+            background: #fee2e2;
+            color: #dc2626;
+            border: none;
+        }
+        .header-nav-btn.logout-btn:hover {
+            background: #dc2626;
+            color: white;
+        }
+
+        /* ---------- Page Layout ---------- */
+        .page-header {
+            background: white;
+            padding: 35px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 900;
+            color: var(--neta-navy);
+            margin: 0;
+        }
+
+        /* ---------- Stat Cards ---------- */
+        .stat-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--neta-gold);
+            margin-right: 15px;
+        }
+        .stat-val { font-size: 1.6rem; font-weight: 800; color: var(--neta-navy); }
+        .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+
+        .footer { padding: 40px 0; color:black; font-size: 0.9rem; text-align: center; }
+
+        @media (max-width: 1100px) {
+            .header-nav-actions { display: none; }
+        }
+    </style>
+
+    <link href='/static/css/role-theme.css' rel='stylesheet'>
+</head>
+
+<body class="role-management">
+
+<div id="sidebar" class="sidebar">
+    <a href="/AdminHome" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
+    <a href="/management-analytics"><i class="fas fa-hospital-user"></i> Management Analytics</a>
+    <a href="/ManageUsers"><i class="fas fa-users-cog"></i> Manage Users</a>
+    <a href="/Upload"><i class="fas fa-cloud-upload-alt"></i> Upload Dataset</a>
+    <a href="/preprocess"><i class="fas fa-cogs"></i> Preprocessing</a>
+    <a href="/trainmodels"><i class="fas fa-brain"></i> Train Models</a>
+    <a href="/comparison"><i class="fas fa-chart-bar"></i> Comparison</a>
+    <a href="/model_performance"><i class="fas fa-chart-line"></i> Model Performance</a>
+    <div style="margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <a href="/adminlogin"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+<nav class="navbar">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <div class="hamburger" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <span class="navbar-brand mb-0 h1" style="font-family: 'Crimson Pro'; font-weight: 900; color: var(--neta-navy);">
+                PULSE ANALYSIS <span style="color: var(--neta-gold);">AI</span>
+            </span>
+        </div>
+
+        <div class="header-nav-actions d-flex gap-2">
+            <a href="/ManageUsers" class="header-nav-btn"><i class="fas fa-user-friends"></i> Users</a>
+            <a href="/management-analytics" class="header-nav-btn"><i class="fas fa-chart-pie"></i> Analytics</a>
+            <a href="/Upload" class="header-nav-btn"><i class="fas fa-upload"></i> Upload</a>
+            <a href="/preprocess" class="header-nav-btn"><i class="fas fa-microchip"></i> Preprocess</a>
+            <a href="/trainmodels" class="header-nav-btn"><i class="fas fa-robot"></i> Train</a>
+            <a href="/comparison" class="header-nav-btn"><i class="fas fa-chart-line"></i> Compare</a>
+            <a href="/adminlogin" class="header-nav-btn logout-btn"><i class="fas fa-power-off"></i> Logout</a>
+        </div>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-2" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">
+                <li class="breadcrumb-item"><a href="#" style="color: var(--neta-gold); text-decoration: none;">Admin</a></li>
+                <li class="breadcrumb-item active">Dashboard Overview</li>
+            </ol>
+        </nav>
+        <h1>System Overview</h1>
+    </div>
+</header>
+
+<main class="container">
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-user-shield"></i></div>
+                <div>
+                    <div class="stat-val">12</div>
+                    <div class="stat-label">Active Admins</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-database"></i></div>
+                <div>
+                    <div class="stat-val">08</div>
+                    <div class="stat-label">Datasets</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-brain"></i></div>
+                <div>
+                    <div class="stat-val">04</div>
+                    <div class="stat-label">AI Models</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+                <div>
+                    <div class="stat-val">99.1%</div>
+                    <div class="stat-label">Avg Accuracy</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="p-4 bg-white rounded shadow-sm border">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 style="font-family: 'Crimson Pro'; font-weight: 700; color: var(--neta-navy); margin:0;">
+                        <i class="fas fa-sync-alt me-2"></i>Retrain Models
+                    </h4>
+                </div>
+                <hr>
+                <p class="text-muted">Upload additional training data to improve model accuracy</p>
+                <form method="POST" action="/retrain" enctype="multipart/form-data">
+                    {{ csrf_input }}
+                    <div class="mb-3">
+                        <label for="new_data" class="form-label">Upload New Training Data (CSV)</label>
+                        <input type="file" class="form-control" id="new_data" name="new_data" accept=".csv" required>
+                        <small class="text-muted">CSV file with same columns as existing dataset</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-brain me-2"></i>Retrain Models with New Data
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="p-4 bg-white rounded shadow-sm border">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 style="font-family: 'Crimson Pro'; font-weight: 700; color: var(--neta-navy); margin:0;">Quick Actions</h4>
+                </div>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="/trainmodels" class="btn btn-outline-primary">
+                        <i class="fas fa-brain me-2"></i>Train Models
+                    </a>
+                    <a href="/model_performance" class="btn btn-outline-info">
+                        <i class="fas fa-chart-line me-2"></i>View Model Performance
+                    </a>
+                    <a href="/comparison" class="btn btn-outline-success">
+                        <i class="fas fa-chart-bar me-2"></i>Model Comparison
+                    </a>
+                    <a href="/management-analytics" class="btn btn-outline-dark">
+                        <i class="fas fa-hospital-user me-2"></i>Management Analytics Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<br><br><br><br><br><br><br><br>
+<footer class="footer">
+    <div class="container border-top pt-4">
+        © 2025 PulseAnalysis AI Research Group | User Management & Secure Access
+    </div>
+</footer>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-03-22 00:23:04",
+  "train_size": 51113,
+  "test_size": 12779,
+  "metrics": {
+    "XGBoost": {
+      "accuracy": 73.04,
+      "precision": 76.91,
+      "recall": 73.04,
+      "f1_score": 71.74,
+      "confusion_matrix": [
+        [
+          1328,
+          1177,
+          657
+        ],
+        [
+          35,
+          4654,
+          465
+        ],
+        [
+          30,
+          1081,
+          3352
+        ]
+      ]
+    },
+    "Random Forest": {
+      "accuracy": 100.0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0,
+      "confusion_matrix": [
+        [
+          3162,
+          0,
+          0
+        ],
+        [
+          0,
+          5154,
+          0
+        ],
+        [
+          0,
+          0,
+          4463
+        ]
+      ]
+    },
+    "Decision Tree": {
+      "accuracy": 100.0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0,
+      "confusion_matrix": [
+        [
+          3162,
+          0,
+          0
+        ],
+        [
+          0,
+          5154,
+          0
+        ],
+        [
+          0,
+          0,
+          4463
+        ]
+      ]
+    }
+  },
+  "dataset_mtime": 1773484269
+}
