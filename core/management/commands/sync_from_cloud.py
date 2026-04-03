@@ -25,6 +25,7 @@ from core.models import (
     Doctor,
     DoctorNote,
     HealthMetrics,
+    HealthTrend,
     Patient,
     Prediction,
 )
@@ -37,6 +38,7 @@ SYNCABLE_MODELS = {
     "Prediction": Prediction,
     "ChatbotInteraction": ChatbotInteraction,
     "DoctorNote": DoctorNote,
+    "HealthTrend": HealthTrend,
 }
 
 

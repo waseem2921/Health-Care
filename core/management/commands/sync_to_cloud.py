@@ -12,7 +12,7 @@ Options:
 
 import logging
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple, Type
 
 from django.apps import apps
 from django.core.management.base import BaseCommand, CommandError
@@ -23,6 +23,7 @@ from core.models import (
     Doctor,
     DoctorNote,
     HealthMetrics,
+    HealthTrend,
     Patient,
     Prediction,
 )
@@ -43,6 +44,7 @@ SYNCABLE_MODELS = {
     "Prediction": Prediction,
     "ChatbotInteraction": ChatbotInteraction,
     "DoctorNote": DoctorNote,
+    "HealthTrend": HealthTrend,
 }
 
 
@@ -128,7 +130,7 @@ class Command(BaseCommand):
             )
         self.stdout.write("=" * 60 + "\n")
 
-    def _get_models_to_sync(self, model_name: str = None) -> Dict:
+    def _get_models_to_sync(self, model_name: Optional[str] = None) -> Dict[str, Type]:
         """
         Get the models to sync.
 

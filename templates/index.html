@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <title>PulseAnalysis AI | Role-Based Access</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -213,6 +216,164 @@
         .role-section {
             padding: 48px 0 72px;
         }
+
+        .trend-section {
+            padding: 20px 0 74px;
+        }
+
+        .trend-shell {
+            border-radius: 26px;
+            border: 1px solid rgba(148, 163, 184, 0.32);
+            background:
+                radial-gradient(circle at 95% 10%, rgba(255, 140, 66, 0.16), transparent 33%),
+                radial-gradient(circle at 0% 90%, rgba(14, 165, 164, 0.16), transparent 35%),
+                linear-gradient(135deg, #f8fdff 0%, #f8fafc 45%, #fffaf3 100%);
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+            padding: 28px;
+        }
+
+        .trend-title {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--ink-900);
+            font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+        }
+
+        .trend-subtitle {
+            color: var(--ink-500);
+            margin-top: 8px;
+            margin-bottom: 24px;
+        }
+
+        .trend-highlight {
+            background: linear-gradient(120deg, #fff5f5, #fffaf4);
+            border: 1px solid #fecaca;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 22px;
+        }
+
+        .trend-highlight h3 {
+            color: #7f1d1d;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .trend-highlight p {
+            color: #7f1d1d;
+            font-size: 0.94rem;
+        }
+
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .trend-card {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px;
+            background: #fff;
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+            animation: reveal 0.7s ease both;
+        }
+
+        .trend-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .trend-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: linear-gradient(130deg, #1d4ed8, #0ea5a4);
+        }
+
+        .risk-pill {
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+
+        .risk-pill.risk-high {
+            color: #7f1d1d;
+            background: #fee2e2;
+            border-color: #fecaca;
+        }
+
+        .risk-pill.risk-moderate {
+            color: #78350f;
+            background: #fef3c7;
+            border-color: #fde68a;
+        }
+
+        .risk-pill.risk-low {
+            color: #14532d;
+            background: #dcfce7;
+            border-color: #bbf7d0;
+        }
+
+        .trend-card h4 {
+            color: var(--ink-900);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.04rem;
+            margin-bottom: 6px;
+        }
+
+        .trend-card .title {
+            color: var(--ink-700);
+            font-size: 0.88rem;
+            margin-bottom: 8px;
+        }
+
+        .trend-card .desc {
+            color: var(--ink-500);
+            font-size: 0.88rem;
+            margin-bottom: 8px;
+        }
+
+        .trend-card .advice {
+            color: #0f766e;
+            font-size: 0.84rem;
+            margin-bottom: 8px;
+            border-left: 3px solid #2dd4bf;
+            padding-left: 8px;
+        }
+
+        .trend-card .source {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .insight-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .insight-item {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 10px;
+            font-size: 0.86rem;
+            color: #1e3a8a;
+        }
+
 
         .section-title {
             text-align: center;
@@ -457,6 +618,14 @@
             .steps {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .trend-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .insight-strip {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 680px) {
@@ -484,6 +653,14 @@
             .steps {
                 grid-template-columns: 1fr;
             }
+
+            .trend-shell {
+                padding: 18px;
+            }
+
+            .trend-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -493,6 +670,7 @@
         <div class="container">
             <a href="/" class="brand">PulseAnalysis AI</a>
             <div class="nav-actions">
+                <a href="#trending" class="pill"><i class="fa-solid fa-earth-asia"></i> Trending Insights</a>
                 <a href="#roles" class="pill"><i class="fa-solid fa-users"></i> Role Access</a>
                 <a href="#how-it-works" class="pill"><i class="fa-solid fa-circle-info"></i> How It Works</a>
             </div>
@@ -538,6 +716,46 @@
             </aside>
         </div>
     </header>
+
+    <section id="trending" class="trend-section">
+        <div class="container">
+            <div class="trend-shell">
+                <h2 class="trend-title">🌍 Trending Health Insights</h2>
+                <p class="trend-subtitle">Daily public health awareness signals curated from trusted sources and stored for offline-safe access.</p>
+
+                {% if most_critical %}
+                <div class="trend-highlight">
+                    <h3><i class="{{ most_critical_icon }}"></i> Most Critical Risk Today: {{ most_critical.disease_name }}</h3>
+                    <p>{{ most_critical.description }}</p>
+                </div>
+                {% endif %}
+
+                <div class="insight-strip">
+                    {% for insight in smart_insights %}
+                    <div class="insight-item"><i class="fa-solid fa-lightbulb"></i> {{ insight }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="trend-grid">
+                    {% for trend in trend_cards %}
+                    <article class="trend-card">
+                        <div class="trend-top">
+                            <span class="trend-icon"><i class="{{ trend.icon_class }}"></i></span>
+                            <span class="risk-pill {{ trend.risk_class }}">{{ trend.risk_level }} Risk</span>
+                        </div>
+                        <h4>{{ trend.disease_name }}</h4>
+                        <p class="title">Confidence: {{ trend.confidence_score }}%</p>
+                        <p class="title">{{ trend.title }}</p>
+                        <p class="desc">{{ trend.description }}</p>
+                        <p class="advice"><strong>Preventive Tip:</strong> {{ trend.preventive_advice }}</p>
+                        <a class="source" href="{{ trend.source_url }}" target="_blank" rel="noopener noreferrer">View Source</a>
+                    </article>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section id="roles" class="role-section">
         <div class="container">
@@ -627,6 +845,7 @@
             <p>© 2026 PulseAnalysis AI. Role-Based Early Detection Platform.</p>
         </div>
     </footer>
+
 </body>
 
 </html>

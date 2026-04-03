@@ -160,3 +160,42 @@ class DoctorNote(models.Model):
 
     def __str__(self):
         return f"{self.doctor.name} -> {self.patient.name}"
+
+
+class HealthTrend(models.Model):
+    RISK_LOW = "Low"
+    RISK_MODERATE = "Moderate"
+    RISK_HIGH = "High"
+    RISK_CHOICES = [
+        (RISK_LOW, "Low"),
+        (RISK_MODERATE, "Moderate"),
+        (RISK_HIGH, "High"),
+    ]
+
+    title = models.CharField(max_length=255)
+    disease_name = models.CharField(max_length=120)
+    risk_level = models.CharField(max_length=10, choices=RISK_CHOICES, default=RISK_LOW)
+    confidence_score = models.FloatField(default=50.0)
+    description = models.TextField()
+    preventive_advice = models.TextField()
+    source_url = models.URLField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_global = models.BooleanField(default=True)
+    is_local = models.BooleanField(default=True)
+    # Offline-first: Track cloud sync status
+    is_synced = models.BooleanField(default=True, help_text="Whether this record is synced with cloud database")
+    synced_at = models.DateTimeField(null=True, blank=True, help_text="Timestamp of last successful cloud sync")
+
+    class Meta:
+        ordering = ["-created_at"]
+        indexes = [
+            models.Index(fields=["-created_at"]),
+            models.Index(fields=["risk_level"]),
+            models.Index(fields=["disease_name"]),
+        ]
+        constraints = [
+            models.UniqueConstraint(fields=["title", "source_url"], name="unique_trend_title_source"),
+        ]
+
+    def __str__(self):
+        return f"{self.disease_name} ({self.risk_level})"

@@ -21,9 +21,9 @@ import shap
 import xgboost as xgb
 import requests
 from django.conf import settings
-from django.db import transaction
+from django.db import OperationalError, ProgrammingError, connection, transaction
 from django.db.models import Avg, Count, OuterRef, Q, Subquery
-from django.db.models.functions import Coalesce
+from django.db.models.functions import Coalesce, TruncDate
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -31,7 +31,8 @@ from django.views.decorators.csrf import csrf_exempt
 from google_auth_oauthlib.flow import Flow
 from xgboost import data
 
-from .models import ChatbotInteraction, Doctor, DoctorNote, HealthMetrics, Patient, Prediction
+from .models import ChatbotInteraction, Doctor, DoctorNote, HealthMetrics, HealthTrend, Patient, Prediction
+from .offline_utils import is_online
 
 
 def _resolve_google_client_secret_file():
@@ -779,6 +780,65 @@ def _persist_patient_metrics(patient, raw_input, fit_daily, data_source):
         )
 
 
+def _build_local_fit_payload(patient):
+    if patient is None:
+        return None
+
+    metrics = list(HealthMetrics.objects.filter(patient=patient).order_by("-date")[:7])
+    if not metrics:
+        return None
+
+    metrics.reverse()
+
+    day_labels = [metric.date.strftime("%b %d") for metric in metrics]
+    day_dates = [metric.date.isoformat() for metric in metrics]
+    daily_steps = [int(metric.steps or 0) for metric in metrics]
+    daily_calories = [round(float(metric.calories_burned or 0)) for metric in metrics]
+    daily_heart_rate = [round(float(metric.heart_rate), 1) if metric.heart_rate is not None else None for metric in metrics]
+    daily_stress = [round(float(metric.stress_level), 1) if metric.stress_level is not None else None for metric in metrics]
+
+    latest_metric = metrics[-1]
+    avg_steps = round(sum(daily_steps) / len(daily_steps)) if daily_steps else 0
+    avg_calories = round(sum(daily_calories) / len(daily_calories)) if daily_calories else 0
+    latest_heart_rate = next((value for value in reversed(daily_heart_rate) if value is not None), None)
+    latest_stress = next((metric.stress_level for metric in reversed(metrics) if metric.stress_level is not None), None)
+    latest_sleep_hours = next((metric.sleep_hours for metric in reversed(metrics) if metric.sleep_hours is not None), None)
+    latest_sleep_quality = next((metric.sleep_quality for metric in reversed(metrics) if metric.sleep_quality is not None), None)
+    latest_blood_oxygen = next((metric.blood_oxygen for metric in reversed(metrics) if metric.blood_oxygen is not None), None)
+    latest_activity_level = next((metric.activity_level for metric in reversed(metrics) if metric.activity_level), "")
+
+    watch_data = {
+        "age": patient.age if patient is not None else "",
+        "gender": patient.gender if patient is not None else "",
+        "resting_heart_rate": latest_heart_rate if latest_heart_rate is not None else "",
+        "stress_level": latest_stress if latest_stress is not None else "",
+        "sleep_duration_hours": latest_sleep_hours if latest_sleep_hours is not None else "",
+        "sleep_quality_score": latest_sleep_quality if latest_sleep_quality is not None else "",
+        "steps_per_day": avg_steps,
+        "calories_burned": avg_calories,
+        "blood_oxygen_level": latest_blood_oxygen if latest_blood_oxygen is not None else "",
+        "activity_level": latest_activity_level,
+    }
+
+    return {
+        "watch_data": watch_data,
+        "fit_daily_data": {
+            "day_labels": day_labels,
+            "day_dates": day_dates,
+            "daily_steps": daily_steps,
+            "daily_calories": daily_calories,
+            "daily_heart_rate": daily_heart_rate,
+            "daily_stress": daily_stress,
+        },
+    }
+
+
+def _prime_fit_session(request, fit_payload):
+    request.session["fit_daily_data"] = fit_payload["fit_daily_data"]
+    request.session["watch_data"] = fit_payload["watch_data"]
+    return fit_payload["watch_data"]
+
+
 def _metric_interpretation(label, average_value, baseline_value):
     if average_value is None:
         return f"Patient {label.lower()} data is not available for the last 7 days."
@@ -857,7 +917,173 @@ def preprocess_data():
 
 #Home Page View
 def home(request):
-    return render_jinja(request, "index.html")
+    return render_jinja(request, "index.html", _build_health_trend_context())
+
+
+def _risk_css_class(risk_level):
+    return {
+        "High": "risk-high",
+        "Moderate": "risk-moderate",
+        "Low": "risk-low",
+    }.get(str(risk_level), "risk-low")
+
+
+def _disease_icon(disease_name):
+    disease_text = str(disease_name or "").lower()
+    if "dengue" in disease_text:
+        return "fa-solid fa-mosquito"
+    if "tuberculosis" in disease_text or "respiratory" in disease_text:
+        return "fa-solid fa-lungs"
+    if "nipah" in disease_text:
+        return "fa-solid fa-virus"
+    if "heat" in disease_text:
+        return "fa-solid fa-sun"
+    if "viral" in disease_text or "flu" in disease_text:
+        return "fa-solid fa-head-side-cough"
+    return "fa-solid fa-shield-virus"
+
+
+def _risk_rank_value(risk_level):
+    return {"High": 3, "Moderate": 2, "Low": 1}.get(str(risk_level), 1)
+
+
+def _build_health_trend_context():
+    empty_context = {
+        "trend_cards": [],
+        "most_critical": None,
+        "most_critical_icon": "fa-solid fa-triangle-exclamation",
+        "smart_insights": ["Trending insights are temporarily unavailable in offline local mode."],
+        "trend_timeline_labels_json": json.dumps([]),
+        "trend_timeline_series_json": json.dumps([]),
+        "disease_frequency_json": json.dumps([]),
+        "risk_distribution_json": json.dumps([]),
+    }
+
+    try:
+        table_names = connection.introspection.table_names()
+        if HealthTrend._meta.db_table not in table_names:
+            return empty_context
+    except (OperationalError, ProgrammingError):
+        return empty_context
+
+    today = timezone.now().date()
+    start_day = today - timedelta(days=6)
+    try:
+        trends_qs = HealthTrend.objects.filter(created_at__date__gte=start_day).order_by("-created_at")
+    except (OperationalError, ProgrammingError):
+        return empty_context
+
+    if not trends_qs.exists():
+        trends_qs = HealthTrend.objects.order_by("-created_at")
+
+    latest_local_trends = list(trends_qs.filter(is_local=True)[:40])
+    if not latest_local_trends:
+        latest_local_trends = list(trends_qs[:40])
+
+    unique_local_trends = []
+    seen_diseases = set()
+    for trend in latest_local_trends:
+        normalized_disease = str(trend.disease_name or "").strip().lower()
+        if normalized_disease in seen_diseases:
+            continue
+        seen_diseases.add(normalized_disease)
+        unique_local_trends.append(trend)
+        if len(unique_local_trends) >= 10:
+            break
+
+    trend_cards = []
+    for trend in unique_local_trends:
+        trend_cards.append(
+            {
+                "title": trend.title,
+                "disease_name": trend.disease_name,
+                "risk_level": trend.risk_level,
+                "confidence_score": round(float(trend.confidence_score or 0.0), 1),
+                "description": trend.description,
+                "preventive_advice": trend.preventive_advice,
+                "source_url": trend.source_url,
+                "created_at": trend.created_at,
+                "risk_class": _risk_css_class(trend.risk_level),
+                "icon_class": _disease_icon(trend.disease_name),
+            }
+        )
+
+    # Aggregates are based on records from the last 7 days for trend analytics.
+    recent_qs = HealthTrend.objects.filter(created_at__date__gte=start_day)
+    if not recent_qs.exists():
+        recent_qs = trends_qs
+
+    disease_counts = Counter(recent_qs.values_list("disease_name", flat=True))
+    risk_counts = Counter(recent_qs.values_list("risk_level", flat=True))
+
+    disease_frequency = [
+        {"label": label, "count": count}
+        for label, count in sorted(disease_counts.items(), key=lambda item: item[1], reverse=True)
+    ][:6]
+    risk_distribution = [
+        {"label": "High", "count": int(risk_counts.get("High", 0))},
+        {"label": "Moderate", "count": int(risk_counts.get("Moderate", 0))},
+        {"label": "Low", "count": int(risk_counts.get("Low", 0))},
+    ]
+
+    labels = [(start_day + timedelta(days=offset)).isoformat() for offset in range(7)]
+    top_diseases = [item["label"] for item in disease_frequency[:3]]
+    timeline_rows = (
+        recent_qs.annotate(day=TruncDate("created_at"))
+        .values("day", "disease_name")
+        .annotate(count=Count("id"))
+        .order_by("day")
+    )
+
+    timeline_matrix = {disease: {day: 0 for day in labels} for disease in top_diseases}
+    for row in timeline_rows:
+        disease_name = row.get("disease_name")
+        day_val = row.get("day")
+        if disease_name not in timeline_matrix or day_val is None:
+            continue
+        timeline_matrix[disease_name][day_val.isoformat()] = int(row.get("count", 0))
+
+    timeline_series = [
+        {
+            "disease": disease,
+            "counts": [timeline_matrix[disease][day] for day in labels],
+        }
+        for disease in top_diseases
+    ]
+
+    most_critical = None
+    ranked_recent = list(recent_qs)
+    if ranked_recent:
+        most_critical = sorted(
+            ranked_recent,
+            key=lambda trend: (
+                _risk_rank_value(trend.risk_level),
+                float(trend.confidence_score or 0.0),
+                trend.created_at,
+            ),
+            reverse=True,
+        )[0]
+
+    smart_insights = []
+    if disease_counts.get("Dengue", 0) > 0:
+        smart_insights.append("Dengue cases trending upwards in recent health headlines.")
+    if disease_counts.get("Heatwave / Heatstroke", 0) > 0:
+        smart_insights.append("Heat-related risks increasing due to weather-related coverage.")
+    if disease_counts.get("Viral Flu", 0) > 0:
+        smart_insights.append("Viral and flu-like illness mentions are active in current trends.")
+    if not smart_insights and recent_qs.exists():
+        smart_insights.append("General health risk signals are active. Continue preventive monitoring.")
+
+    return {
+        "trend_cards": trend_cards,
+        "most_critical": most_critical,
+        "most_critical_icon": _disease_icon(most_critical.disease_name) if most_critical else "fa-solid fa-triangle-exclamation",
+        "smart_insights": smart_insights,
+        "trend_timeline_labels_json": json.dumps(labels),
+        "trend_timeline_series_json": json.dumps(timeline_series),
+        "disease_frequency_json": json.dumps(disease_frequency),
+        "risk_distribution_json": json.dumps(risk_distribution),
+    }
 
 #Admin Login Page View : This view renders the admin login page when accessed. It does not perform any authentication logic itself; it simply serves the HTML template for the admin login interface.
 def admin_login_page(request):
@@ -1886,12 +2112,18 @@ def train_models(request):
         shap_rows = min(40, len(X_test))
         shap_explainer = shap.TreeExplainer(rf_model)
         shap_values = shap_explainer.shap_values(X_test.iloc[:shap_rows])
+        
+        # For multi-class, shap_values is a list; average across all classes
+        if isinstance(shap_values, list):
+            shap_values = np.mean(np.array(shap_values), axis=0)
+        
         shap.summary_plot(shap_values, X_test.iloc[:shap_rows], show=False)
         plt.savefig(STATIC_FOLDER / "shap_summary.png", dpi=150, bbox_inches="tight")
         plt.close()
         shap_image = "shap_summary.png"
-    except Exception:
+    except Exception as e:
         plt.close()
+        print(f"SHAP generation failed: {str(e)}")
     #LIME Explanation : This section uses LIME (Local Interpretable Model-agnostic Explanations) to generate an explanation for a single test instance. It creates a LIME explainer using the training data, generates an explanation for the first test instance, and saves the explanation as an HTML file in the static folder for later display in the admin interface.
     try:
         lime_train_sample = X_train.sample(n=min(2000, len(X_train)), random_state=42)
@@ -1909,8 +2141,9 @@ def train_models(request):
         )
         lime_exp.save_to_file(STATIC_FOLDER / "lime_explanation.html")
         lime_file = "lime_explanation.html"
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"LIME generation failed: {str(e)}")
+        lime_file = None
     #Save Training Metrics : This section saves the training metrics for all three models (XGBoost, Random Forest, and Decision Tree) to a JSON file in the Models folder. The saved metrics include accuracy, precision, recall, F1 score, and confusion matrix for each model, along with a timestamp and the sizes of the training and testing datasets. This allows for easy retrieval and display of model performance metrics in the admin interface.
     metrics_file = MODEL_FOLDER / "training_metrics.json"
     training_info = {
@@ -2666,9 +2899,16 @@ def google_fit_callback(request):
 def fetch_google_fit_data(request):
 
     token = request.session.get("google_token")
+    patient = _get_session_patient(request)
+    local_fit_payload = _build_local_fit_payload(patient)
 
     if not token:
+        if not is_online() and local_fit_payload is not None:
+            return _run_prediction(request, _prime_fit_session(request, local_fit_payload))
         return redirect("connect_google_fit")
+
+    if not is_online() and local_fit_payload is not None:
+        return _run_prediction(request, _prime_fit_session(request, local_fit_payload))
 
     headers = {
         "Authorization": f"Bearer {token}"
@@ -2696,9 +2936,13 @@ def fetch_google_fit_data(request):
             timeout=30,
         )
     except requests.RequestException as exc:
+        if local_fit_payload is not None:
+            return _run_prediction(request, _prime_fit_session(request, local_fit_payload))
         return HttpResponse(f"Google Fit request failed: {str(exc)}", status=502)
 
     if response.status_code != 200:
+        if local_fit_payload is not None:
+            return _run_prediction(request, _prime_fit_session(request, local_fit_payload))
         return HttpResponse(
             f"Google Fit API error ({response.status_code}): {response.text}",
             status=502,
@@ -2708,6 +2952,8 @@ def fetch_google_fit_data(request):
     try:
         data = response.json()
     except ValueError:
+        if local_fit_payload is not None:
+            return _run_prediction(request, _prime_fit_session(request, local_fit_payload))
         return HttpResponse("Google Fit API returned non-JSON response.", status=502)
 
     # Collect per-day arrays for charts

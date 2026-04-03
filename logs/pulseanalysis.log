@@ -396,3 +396,1360 @@ django.db.utils.OperationalError: could not translate host name "ep-small-glade-
 [INFO] 2026-03-22 13:11:00 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
 [INFO] 2026-03-22 13:11:08 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
 [INFO] 2026-03-22 13:11:08 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32052
+[INFO] 2026-03-23 13:18:38 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-23 13:19:32 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 21126
+[INFO] 2026-03-23 13:19:32 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-23 13:19:37 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:19:40 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:19:45 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-23 13:19:52 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:19:54 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32052
+[INFO] 2026-03-23 13:21:10 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:21:11 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:21:25 basehttp log_message:213 - "GET /google-fit-callback/?state=gtT7srHlXiraYf0LugSvTRDIHbUBaJ&iss=https://accounts.google.com&code=4/0Aci98E_Lb-Pg7g9kuxiJkhbaLjVMnKAT8XyJ5Z0LDqRoTsqN6aGfeViaEvWdtIjj2XEBFQ&scope=https://www.googleapis.com/auth/fitness.sleep.read%20https://www.googleapis.com/auth/fitness.heart_rate.read%20https://www.googleapis.com/auth/fitness.activity.read HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:21:30 basehttp log_message:213 - "GET /fetch-google-fit/ HTTP/1.1" 200 11775
+[INFO] 2026-03-23 13:21:30 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-23 13:22:11 basehttp log_message:213 - "POST /detect_action/ HTTP/1.1" 200 36871
+[INFO] 2026-03-23 13:23:17 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-23 13:23:21 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-23 13:23:35 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:23:36 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-23 13:24:01 basehttp log_message:213 - "GET /doctor/patient/3/ HTTP/1.1" 200 28505
+[INFO] 2026-03-23 13:24:17 basehttp log_message:213 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:24:17 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-23 13:24:27 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:24:29 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25750
+[INFO] 2026-03-23 13:25:02 basehttp log_message:213 - "GET /fetch-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:25:04 basehttp handle_error:81 - - Broken pipe from ('127.0.0.1', 64308)
+[INFO] 2026-03-23 13:25:14 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:25:16 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 31935
+[INFO] 2026-03-23 13:25:25 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-23 13:26:17 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 200 9770
+[INFO] 2026-03-23 13:26:49 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 200 9770
+[INFO] 2026-03-23 13:27:17 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 200 9770
+[INFO] 2026-03-23 13:30:04 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-23 13:30:17 basehttp log_message:213 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-03-23 13:30:17 basehttp log_message:213 - "GET /static/img/2.jpg HTTP/1.1" 200 108664
+[INFO] 2026-03-23 13:30:33 basehttp log_message:213 - "GET /model_performance HTTP/1.1" 200 12101
+[INFO] 2026-03-23 13:30:58 basehttp log_message:213 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-03-23 13:30:58 basehttp log_message:213 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-03-23 13:31:28 basehttp log_message:213 - "GET /management-analytics HTTP/1.1" 200 32596
+[INFO] 2026-03-23 13:32:40 basehttp log_message:213 - "GET /trainmodels HTTP/1.1" 200 9678
+[INFO] 2026-03-23 13:32:40 basehttp log_message:213 - "GET /static/confusion_matrix_rf.png HTTP/1.1" 200 53326
+[WARNING] 2026-03-23 13:32:40 log log_response:253 - Not Found: /static/None
+[WARNING] 2026-03-23 13:32:40 basehttp log_message:213 - "GET /static/None HTTP/1.1" 404 179
+[INFO] 2026-03-23 13:32:47 basehttp log_message:213 - "GET /static/lime_explanation.html HTTP/1.1" 200 1269545
+[INFO] 2026-03-23 13:33:22 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-23 13:36:30 basehttp log_message:213 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-23 13:37:00 basehttp log_message:213 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-03-23 13:37:11 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:37:12 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25750
+[INFO] 2026-03-23 13:37:20 basehttp log_message:213 - "GET /doctor/patient/1/ HTTP/1.1" 200 28495
+[INFO] 2026-03-23 13:37:54 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25750
+[INFO] 2026-03-23 13:37:56 basehttp log_message:213 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:37:56 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-23 13:42:01 basehttp log_message:213 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-23 13:42:07 basehttp log_message:213 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-03-23 13:42:17 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 13:42:19 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-23 13:42:26 basehttp log_message:213 - "GET /doctor/patient/3/ HTTP/1.1" 200 28505
+[INFO] 2026-03-23 19:13:02 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-23 19:13:43 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-23 19:13:51 log log_message:249 - "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:13:52 log log_message:249 - "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4080
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/css/login.css
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/css/login.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:13:52 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:14:50 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-23 19:15:03 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-23 19:15:11 log log_message:249 - "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:15:11 log log_message:249 - "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4080
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - Not Found: /static/admin/css/login.css
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:15:11 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:15:12 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:12 log log_message:249 - "GET /static/admin/css/login.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:12 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:12 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:15:41 basehttp handle_error:82 - - Broken pipe from ('127.0.0.1', 50067)
+[INFO] 2026-03-23 19:15:49 log log_message:249 - "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:15:51 log log_message:249 - "GET /admin/ HTTP/1.1" 200 10162
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/css/dashboard.css
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/css/dashboard.css
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:15:51 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:16:04 log log_message:249 - "GET /admin/core/doctor/ HTTP/1.1" 200 13834
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - Not Found: /static/admin/js/filters.js
+[WARNING] 2026-03-23 19:16:04 log log_message:249 - "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:16:09 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:16:09 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:16:09 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:16:17 log log_message:249 - "GET /admin/core/doctor/2/change/ HTTP/1.1" 200 17861
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/calendar.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/prepopulate_init.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/calendar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - Not Found: /static/admin/js/change_form.js
+[WARNING] 2026-03-23 19:16:17 log log_message:249 - "GET /static/admin/js/change_form.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:16:18 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:16:18 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:16:18 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:17:58 log log_message:249 - "POST /admin/core/doctor/2/change/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:18:00 log log_message:249 - "GET /admin/core/doctor/ HTTP/1.1" 200 14041
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - Not Found: /static/admin/js/filters.js
+[WARNING] 2026-03-23 19:18:00 log log_message:249 - "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:18:01 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:18:01 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:18:01 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:18:06 log log_message:249 - "GET /admin/core/doctor/1/change/ HTTP/1.1" 200 17851
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:06 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/calendar.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/calendar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/prepopulate_init.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - Not Found: /static/admin/js/change_form.js
+[WARNING] 2026-03-23 19:18:07 log log_message:249 - "GET /static/admin/js/change_form.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:18:09 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:18:09 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:18:09 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:19:41 basehttp handle_error:82 - - Broken pipe from ('127.0.0.1', 56238)
+[INFO] 2026-03-23 19:19:41 basehttp handle_error:82 - - Broken pipe from ('127.0.0.1', 51474)
+[INFO] 2026-03-23 19:19:42 log log_message:249 - "GET /admin/core/doctor/ HTTP/1.1" 200 13834
+[INFO] 2026-03-23 19:19:48 log log_message:249 - "GET /admin/core/patient/ HTTP/1.1" 200 13006
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - Not Found: /static/admin/js/filters.js
+[WARNING] 2026-03-23 19:19:48 log log_message:249 - "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:19:52 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:19:52 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:19:52 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:20:02 log log_message:249 - "GET /admin/core/patient/3/change/ HTTP/1.1" 200 25166
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/calendar.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/calendar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/prepopulate_init.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/img/icon-changelink.svg
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - Not Found: /static/admin/img/icon-addlink.svg
+[WARNING] 2026-03-23 19:20:02 log log_message:249 - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - Not Found: /static/admin/img/icon-viewlink.svg
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - Not Found: /static/admin/img/icon-deletelink.svg
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - Not Found: /static/admin/js/change_form.js
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - "GET /static/admin/js/change_form.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:20:03 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - Not Found: /static/admin/img/icon-addlink.svg
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - Not Found: /static/admin/img/icon-viewlink.svg
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - Not Found: /static/admin/img/icon-changelink.svg
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:03 log log_message:249 - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:20:37 log log_message:249 - "POST /admin/core/patient/3/change/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:20:39 log log_message:249 - "GET /admin/core/patient/ HTTP/1.1" 200 13208
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - Not Found: /static/admin/js/filters.js
+[WARNING] 2026-03-23 19:20:39 log log_message:249 - "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:20:40 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:20:40 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:20:40 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:20:48 log log_message:249 - "GET /admin/core/patient/2/change/ HTTP/1.1" 200 25182
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:48 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/calendar.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/calendar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/prepopulate_init.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/img/icon-changelink.svg
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/img/icon-addlink.svg
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/img/icon-viewlink.svg
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/img/icon-deletelink.svg
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - Not Found: /static/admin/js/change_form.js
+[WARNING] 2026-03-23 19:20:49 log log_message:249 - "GET /static/admin/js/change_form.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:20:50 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - Not Found: /static/admin/img/icon-addlink.svg
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - Not Found: /static/admin/img/icon-changelink.svg
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - Not Found: /static/admin/img/icon-viewlink.svg
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:20:50 log log_message:249 - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:09 log log_message:249 - "POST /admin/core/patient/2/change/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:21:11 log log_message:249 - "GET /admin/core/patient/ HTTP/1.1" 200 13211
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:21:11 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:12 log log_message:249 - Not Found: /static/admin/js/filters.js
+[WARNING] 2026-03-23 19:21:12 log log_message:249 - "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:12 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:21:12 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:12 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:20 log log_message:249 - "GET /admin/core/patient/1/change/ HTTP/1.1" 200 25187
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/calendar.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/calendar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/css/forms.css
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/css/forms.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/prepopulate_init.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/img/icon-changelink.svg
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/img/icon-addlink.svg
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/img/icon-viewlink.svg
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/img/icon-deletelink.svg
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - Not Found: /static/admin/js/change_form.js
+[WARNING] 2026-03-23 19:21:20 log log_message:249 - "GET /static/admin/js/change_form.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:21 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - Not Found: /static/admin/img/icon-addlink.svg
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - Not Found: /static/admin/img/icon-changelink.svg
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - Not Found: /static/admin/img/icon-viewlink.svg
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:21 log log_message:249 - "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:37 log log_message:249 - "POST /admin/core/patient/1/change/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:21:39 log log_message:249 - "GET /admin/core/patient/ HTTP/1.1" 200 13212
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/js/core.js
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/js/jquery.init.js
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/js/core.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/css/changelists.css
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/js/actions.js
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:39 log log_message:249 - Not Found: /static/admin/js/urlify.js
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - Not Found: /static/admin/js/prepopulate.js
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - Not Found: /static/admin/js/filters.js
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:40 log log_message:249 - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:40 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:52 log log_message:249 - "POST /admin/logout/ HTTP/1.1" 200 3475
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/css/base.css
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/css/dark_mode.css
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/js/theme.js
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/css/responsive.css
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/css/nav_sidebar.css
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - Not Found: /static/admin/js/nav_sidebar.js
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[WARNING] 2026-03-23 19:21:52 log log_message:249 - "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[INFO] 2026-03-23 19:21:53 log log_message:249 - "GET /admin/core/patient/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:21:53 log log_message:249 - "GET /admin/login/?next=/admin/core/patient/ HTTP/1.1" 200 4106
+[INFO] 2026-03-23 19:21:54 log log_message:249 - "GET /admin/core/patient/1/change/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:21:54 log log_message:249 - "GET /admin/login/?next=/admin/core/patient/1/change/ HTTP/1.1" 200 4124
+[INFO] 2026-03-23 19:21:55 log log_message:249 - "GET /admin/core/patient/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:21:55 log log_message:249 - "GET /admin/login/?next=/admin/core/patient/ HTTP/1.1" 200 4106
+[INFO] 2026-03-23 19:21:56 log log_message:249 - "GET /admin/core/patient/2/change/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:21:56 log log_message:249 - "GET /admin/login/?next=/admin/core/patient/2/change/ HTTP/1.1" 200 4124
+[INFO] 2026-03-23 19:21:56 log log_message:249 - "GET /admin/core/patient/ HTTP/1.1" 302 0
+[INFO] 2026-03-23 19:21:56 log log_message:249 - "GET /admin/login/?next=/admin/core/patient/ HTTP/1.1" 200 4106
+[INFO] 2026-03-23 19:22:00 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-23 19:22:05 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-25 15:32:05 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-25 15:32:57 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-25 15:32:58 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-25 15:33:38 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-03-25 15:33:38 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-25 15:33:45 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:33:47 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31935
+[INFO] 2026-03-25 15:33:53 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-03-25 15:35:16 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:35:20 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:35:27 log log_message:249 - "GET /google-fit-callback/?state=CdO6umEe85D4ucRfoMDcLeAxbuIf2T&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E_3PvIR6AeGSX_dCRwDnvh9p0A7gyhY5gRxHryA-Rm_kBMbC5ZRpPyIKywbbVwWVA&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:35:32 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11765
+[INFO] 2026-03-25 15:35:33 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-25 15:35:54 log log_message:249 - "POST /detect_action/ HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:35:54 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-25 15:36:06 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:36:08 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31935
+[INFO] 2026-03-25 15:36:14 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-03-25 15:36:37 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 36859
+[INFO] 2026-03-25 15:36:37 log log_message:249 - "POST /chatbot/query/ HTTP/1.1" 200 824
+[INFO] 2026-03-25 15:37:03 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-25 15:37:07 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-25 15:37:15 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:37:16 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-25 15:37:32 log log_message:249 - "GET /doctor/patient/3/ HTTP/1.1" 200 28505
+[INFO] 2026-03-25 15:37:56 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-25 15:37:58 log log_message:249 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-03-25 15:37:58 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-25 15:37:59 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-25 15:38:07 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-03-25 15:38:18 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32749
+[INFO] 2026-03-26 22:02:06 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-26 23:08:51 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-26 23:09:42 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-26 23:09:50 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-03-26 23:09:50 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-26 23:09:57 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:09:59 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31995
+[INFO] 2026-03-26 23:10:36 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:10:39 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:10:47 log log_message:249 - "GET /google-fit-callback/?state=XHzed2nDz27w7udlOL3I6NYwbjKVnO&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E8zT3mkol0TDVBo_vkRKujk7gcL0Gnt2vp8boKXlCDW4mO2PMqzG9cfbK6kcCJl7g&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:10:51 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11765
+[INFO] 2026-03-26 23:10:52 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-26 23:11:18 log log_message:249 - "POST /detect_action/ HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:11:18 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-26 23:11:26 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:11:29 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31995
+[INFO] 2026-03-26 23:11:34 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-03-26 23:11:55 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-26 23:11:57 basehttp handle_error:82 - - Broken pipe from ('127.0.0.1', 62932)
+[INFO] 2026-03-26 23:11:58 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-26 23:12:13 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:12:15 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 25776
+[INFO] 2026-03-26 23:12:29 log log_message:249 - "GET /doctor/patient/3/ HTTP/1.1" 200 28505
+[INFO] 2026-03-26 23:13:07 log log_message:249 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-03-26 23:13:07 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-03-26 23:13:09 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-26 23:13:18 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-03-26 23:13:33 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32879
+[INFO] 2026-03-28 20:05:48 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-28 20:05:51 log log_message:249 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-03-28 20:05:51 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-28 20:05:55 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-28 20:06:05 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-28 20:06:07 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31987
+[INFO] 2026-03-28 20:06:12 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-03-28 20:18:23 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-28 20:18:27 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-28 20:18:35 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-03-28 20:18:57 log log_message:249 - "GET /trainmodels HTTP/1.1" 200 9678
+[WARNING] 2026-03-28 20:18:57 log log_message:249 - Not Found: /static/None
+[INFO] 2026-03-28 20:18:57 log log_message:249 - "GET /static/confusion_matrix_rf.png HTTP/1.1" 304 0
+[WARNING] 2026-03-28 20:18:57 log log_message:249 - "GET /static/None HTTP/1.1" 404 179
+[INFO] 2026-03-28 20:21:38 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-28 20:21:50 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-28 20:22:42 log log_message:249 - "GET /trainmodels HTTP/1.1" 200 9567
+[INFO] 2026-03-28 20:22:51 log log_message:249 - "GET /trainmodels HTTP/1.1" 200 9567
+[INFO] 2026-03-28 20:24:47 log log_message:249 - "GET /trainmodels HTTP/1.1" 200 9567
+[INFO] 2026-03-28 20:24:55 log log_message:249 - "GET /static/lime_explanation.html HTTP/1.1" 200 1269545
+[INFO] 2026-03-28 20:50:02 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-03-28 20:50:07 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-28 20:50:10 log log_message:249 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-03-31 16:34:08 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 16:34:55 log log_message:249 - "GET / HTTP/1.1" 200 19837
+[INFO] 2026-03-31 16:34:59 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-03-31 16:34:59 log log_message:249 - "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[INFO] 2026-03-31 16:34:59 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-31 16:34:59 log log_message:249 - "GET /static/img/2.jpg HTTP/1.1" 304 0
+[INFO] 2026-03-31 16:35:10 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:35:12 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31987
+[INFO] 2026-03-31 16:35:16 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:35:20 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:35:35 log log_message:249 - "GET /google-fit-callback/?state=oNTKczlZGZv6vEb9gWenblhWCPj3ZE&iss=https://accounts.google.com&code=4/0Aci98E9vMT9B5t_3vrHFEtbwoiZmE3rFbG417J1kmCU52mksMTWjfPH3Vhb0omFqF4nDvw&scope=https://www.googleapis.com/auth/fitness.sleep.read%20https://www.googleapis.com/auth/fitness.heart_rate.read%20https://www.googleapis.com/auth/fitness.activity.read HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:35:39 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11765
+[INFO] 2026-03-31 16:35:40 log log_message:249 - "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[INFO] 2026-03-31 16:35:40 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-03-31 16:36:12 log log_message:249 - "POST /detect_action/ HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:36:12 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-03-31 16:36:24 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:36:26 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31987
+[INFO] 2026-03-31 16:36:36 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:36:43 log log_message:249 - "GET /google-fit-callback/?state=iqtakeqw1yqIvJrvBg8e5EMcfgQIGH&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E9Ji7sDtxQwNQ3LKO69iphPf5yzyid1HUDMDMeug33FH9yf8eSRIQ4UUVRDptVY0Q&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read HTTP/1.1" 302 0
+[INFO] 2026-03-31 16:36:47 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11775
+[INFO] 2026-03-31 16:37:25 log log_message:249 - "POST /detect_action/ HTTP/1.1" 200 36468
+[INFO] 2026-03-31 17:58:39 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 17:59:30 log log_message:249 - "GET / HTTP/1.1" 200 35869
+[INFO] 2026-03-31 18:05:26 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:07:19 basehttp handle_error:82 - - Broken pipe from ('127.0.0.1', 49666)
+[INFO] 2026-03-31 18:07:25 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:09:15 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:12:17 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:12:48 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[WARNING] 2026-03-31 18:12:50 log log_message:249 - Not Found: /favicon.ico
+[WARNING] 2026-03-31 18:12:50 log log_message:249 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-03-31 18:13:56 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:14:25 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:16:50 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:19:28 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:20:32 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:21:22 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:24:27 log log_message:249 - "GET / HTTP/1.1" 200 39739
+[INFO] 2026-03-31 18:24:58 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:25:24 basehttp log_message:213 - "GET / HTTP/1.1" 200 34626
+[INFO] 2026-03-31 18:31:13 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 18:31:18 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:32:38 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 18:32:41 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:33:13 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:33:38 basehttp log_message:213 - "GET / HTTP/1.1" 200 29210
+[INFO] 2026-03-31 18:46:56 basehttp log_message:213 - "GET / HTTP/1.1" 200 29210
+[INFO] 2026-03-31 18:51:23 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\models.py changed, reloading.
+[INFO] 2026-03-31 18:51:24 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\models.py changed, reloading.
+[INFO] 2026-03-31 18:51:28 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:51:28 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:51:51 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 18:51:51 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 18:51:55 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:51:56 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 18:54:41 log log_message:249 - "GET / HTTP/1.1" 200 29457
+[INFO] 2026-03-31 19:00:35 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-03-31 19:02:16 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[ERROR] 2026-03-31 19:02:24 log log_response:253 - Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 860, in home
+    return render_jinja(request, "index.html", _build_health_trend_context())
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 895, in _build_health_trend_context
+    if not trends_qs.exists():
+           ~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1298, in exists
+    return self.query.has_results(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-31 19:02:25 basehttp log_message:213 - "GET / HTTP/1.1" 500 145
+[ERROR] 2026-03-31 19:02:28 log log_response:253 - Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 860, in home
+    return render_jinja(request, "index.html", _build_health_trend_context())
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 895, in _build_health_trend_context
+    if not trends_qs.exists():
+           ~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1298, in exists
+    return self.query.has_results(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-31 19:02:28 basehttp log_message:213 - "GET / HTTP/1.1" 500 145
+[ERROR] 2026-03-31 19:02:29 log log_response:253 - Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 860, in home
+    return render_jinja(request, "index.html", _build_health_trend_context())
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 895, in _build_health_trend_context
+    if not trends_qs.exists():
+           ~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1298, in exists
+    return self.query.has_results(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-31 19:02:29 basehttp log_message:213 - "GET / HTTP/1.1" 500 145
+[ERROR] 2026-03-31 19:02:29 log log_response:253 - Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 860, in home
+    return render_jinja(request, "index.html", _build_health_trend_context())
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 895, in _build_health_trend_context
+    if not trends_qs.exists():
+           ~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1298, in exists
+    return self.query.has_results(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-31 19:02:29 basehttp log_message:213 - "GET / HTTP/1.1" 500 145
+[ERROR] 2026-03-31 19:02:45 log log_response:253 - Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 860, in home
+    return render_jinja(request, "index.html", _build_health_trend_context())
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 895, in _build_health_trend_context
+    if not trends_qs.exists():
+           ~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1298, in exists
+    return self.query.has_results(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-31 19:02:45 basehttp log_message:213 - "GET / HTTP/1.1" 500 145
+[INFO] 2026-03-31 19:03:19 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[ERROR] 2026-03-31 19:03:29 log log_response:253 - Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 860, in home
+    return render_jinja(request, "index.html", _build_health_trend_context())
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 895, in _build_health_trend_context
+    if not trends_qs.exists():
+           ~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\query.py", line 1298, in exists
+    return self.query.has_results(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\Python\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\Python\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-03-31 19:03:29 basehttp log_message:213 - "GET / HTTP/1.1" 500 145
+[INFO] 2026-03-31 19:04:57 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\offline_utils.py changed, reloading.
+[INFO] 2026-03-31 19:04:58 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\offline_utils.py changed, reloading.
+[INFO] 2026-03-31 19:05:02 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:05:02 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:05:57 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\offline_utils.py changed, reloading.
+[INFO] 2026-03-31 19:05:58 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\offline_utils.py changed, reloading.
+[INFO] 2026-03-31 19:06:00 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:06:00 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:06:37 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 19:06:38 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 19:06:43 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:06:43 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:47:04 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 19:47:04 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-03-31 19:47:15 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:47:15 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:48:32 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-03-31 19:48:45 basehttp log_message:213 - "GET / HTTP/1.1" 200 25426
+[INFO] 2026-04-01 17:00:59 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\models.py changed, reloading.
+[INFO] 2026-04-01 17:01:00 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\models.py changed, reloading.
+[INFO] 2026-04-01 17:01:08 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-01 17:01:08 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-01 17:11:06 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-01 17:11:29 basehttp log_message:213 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-01 17:12:15 basehttp log_message:213 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-04-01 17:12:15 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-04-01 17:12:47 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-01 17:12:54 basehttp log_message:213 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-04-01 17:12:58 basehttp log_message:213 - "GET / HTTP/1.1" 200 25426
+[INFO] 2026-04-03 15:49:41 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-03 15:58:50 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-03 15:59:09 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[WARNING] 2026-04-03 15:59:10 log log_message:249 - Not Found: /favicon.ico
+[WARNING] 2026-04-03 15:59:10 log log_message:249 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-04-03 15:59:37 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-03 15:59:37 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-04-03 15:59:43 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-03 15:59:46 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31824
+[INFO] 2026-04-03 15:59:50 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 15:59:54 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:00:01 log log_message:249 - "GET /google-fit-callback/?state=OMkCpQoBSpNVx0ZQQFOE9RCnexzd69&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E8jhVh2Jes2f9IMi-NaqN33S8g7_vlnB9aUkOLBva0wgyB9stMgWp9RNLm7YmVt8g&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:00:04 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11775
+[INFO] 2026-04-03 16:00:04 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[WARNING] 2026-04-03 16:00:05 log log_message:249 - Not Found: /favicon.ico
+[WARNING] 2026-04-03 16:00:05 log log_message:249 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-04-03 16:00:55 log log_message:249 - "POST /detect_action/ HTTP/1.1" 200 37035
+[INFO] 2026-04-03 16:01:08 log log_message:249 - "GET /static/lime_user_20260403_160038.html HTTP/1.1" 200 1269323
+[INFO] 2026-04-03 16:01:41 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-03 16:01:44 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-03 16:01:54 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 200 9770
+[INFO] 2026-04-03 16:02:05 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 200 9770
+[INFO] 2026-04-03 16:02:15 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 200 9770
+[INFO] 2026-04-03 16:02:39 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:02:41 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 26033
+[INFO] 2026-04-03 16:02:50 log log_message:249 - "GET /doctor/patient/4/ HTTP/1.1" 200 34178
+[INFO] 2026-04-03 16:03:19 log log_message:249 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:03:19 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-03 16:03:20 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-03 16:03:29 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-03 16:03:42 log log_message:249 - "GET /ManageUsers HTTP/1.1" 200 9184
+[INFO] 2026-04-03 16:03:54 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 33003
+[INFO] 2026-04-03 16:04:07 log log_message:249 - "GET /model_performance HTTP/1.1" 200 12101
+[INFO] 2026-04-03 16:04:24 log log_message:249 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-03 16:04:24 log log_message:249 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-04-03 16:04:48 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-03 16:04:56 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-03 16:04:59 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-03 16:05:04 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:05:04 log log_message:249 - "GET /UserHome HTTP/1.1" 200 31824
+[INFO] 2026-04-03 16:05:09 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:05:09 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:05:12 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-03 16:05:20 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 36277
+[INFO] 2026-04-03 16:05:42 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-03 16:05:47 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-03 16:05:54 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:05:54 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 26019
+[INFO] 2026-04-03 16:05:58 log log_message:249 - "GET /doctor/patient/4/ HTTP/1.1" 200 33532
+[INFO] 2026-04-03 16:06:14 log log_message:249 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:06:14 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-03 16:06:15 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-03 16:06:22 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-03 16:06:24 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32741
+[INFO] 2026-04-03 16:06:28 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32741
+[INFO] 2026-04-03 16:06:43 log log_message:249 - "GET /model_performance HTTP/1.1" 200 12101
+[INFO] 2026-04-03 16:06:48 log log_message:249 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-03 16:06:49 log log_message:249 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-04-03 16:14:49 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-03 16:14:53 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-03 16:15:18 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-03 16:15:21 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-03 16:17:47 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-03 16:17:54 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-03 16:18:00 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:18:02 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32892
+[INFO] 2026-04-03 16:18:03 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 200 205399
+[INFO] 2026-04-03 16:18:44 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:18:48 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:18:55 log log_message:249 - "GET /google-fit-callback/?state=stXnIDkwQcLf7v46LHfzcosQBO8dFj&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E8CaE5du2wjs0NvYj2uwMvm38wch-I5H3TFQxBI7D5RGMR1q8AnpOR86WCol0L9fw&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:19:00 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11765
+[INFO] 2026-04-03 16:19:11 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-03 16:19:15 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-03 16:19:21 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-03 16:19:30 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32974
+[INFO] 2026-04-03 16:19:30 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 200 205399
+[INFO] 2026-04-03 16:19:47 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-03 16:20:45 autoreload run_with_reloader:681 - Watching for file changes with StatReloader

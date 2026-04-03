@@ -55,18 +55,18 @@ def _check_connectivity() -> bool:
     Returns:
         bool: True if internet is available.
     """
-    # Strategy 1: Test DNS resolution (lightweight)
+    # Strategy 1: Test DNS resolution of real internet hosts.
     if _test_dns():
         return True
     
-    # Strategy 2: Test socket connection to public DNS
+    # Strategy 2: Test socket connection to public DNS resolver.
     if _test_socket_connection():
         return True
     
-    # Strategy 3: Test connection to a public HTTP endpoint (if available)
+    # Strategy 3: Test a lightweight HTTP endpoint.
     try:
         import urllib.request
-        urllib.request.urlopen("http://8.8.8.8", timeout=3)
+        urllib.request.urlopen("https://www.google.com/generate_204", timeout=3)
         return True
     except Exception:
         pass
@@ -76,28 +76,31 @@ def _check_connectivity() -> bool:
 
 
 def _test_dns() -> bool:
-    """Test DNS resolution to 8.8.8.8 (Google DNS)."""
-    try:
-        socket.gethostbyname("8.8.8.8")
-        logger.debug("DNS connectivity check passed")
-        return True
-    except Exception as e:
-        logger.debug(f"DNS check failed: {e}")
-        return False
+    """Test DNS resolution against known public domains."""
+    hosts = ["www.google.com", "www.cloudflare.com", "www.microsoft.com"]
+    for host in hosts:
+        try:
+            socket.getaddrinfo(host, 443)
+            logger.debug(f"DNS connectivity check passed for host: {host}")
+            return True
+        except Exception as e:
+            logger.debug(f"DNS check failed for {host}: {e}")
+    return False
 
 
 def _test_socket_connection() -> bool:
-    """Test socket connection to 8.8.8.8:53 (Google DNS)."""
-    try:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(3)
-        result = sock.connect_ex(("8.8.8.8", 53))
-        sock.close()
-        if result == 0:
-            logger.debug("Socket connectivity check passed")
-            return True
-    except Exception as e:
-        logger.debug(f"Socket check failed: {e}")
+    """Test socket connections to public DNS endpoints."""
+    endpoints = [("8.8.8.8", 53), ("1.1.1.1", 53)]
+    for host, port in endpoints:
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.settimeout(3)
+                result = sock.connect_ex((host, port))
+                if result == 0:
+                    logger.debug(f"Socket connectivity check passed for {host}:{port}")
+                    return True
+        except Exception as e:
+            logger.debug(f"Socket check failed for {host}:{port}: {e}")
     return False
 
 

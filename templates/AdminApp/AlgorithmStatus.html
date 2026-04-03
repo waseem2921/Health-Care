@@ -241,17 +241,19 @@
                 <img src="/static/{{ confusion_matrix_file }}" class="img-fluid rounded border mt-2" alt="Confusion Matrix">
                 {% endif %}
 
+                {% if shap_image %}
                 <hr>
-
                 <h5 class="mt-4">SHAP – Global Feature Importance</h5>
-                <img src="/static/{{ shap_image }}" class="img-fluid rounded border mt-2">
+                <img src="/static/{{ shap_image }}" class="img-fluid rounded border mt-2" alt="SHAP Summary">
+                {% endif %}
 
+                {% if lime_file %}
                 <hr>
-
-                <h5>LIME – Local Explanation</h5>
+                <h5 class="mt-4">LIME – Local Explanation</h5>
                 <a href="/static/{{ lime_file }}" target="_blank" class="btn btn-primary mt-2">
                     View LIME Explanation
                 </a>
+                {% endif %}
 
             </div>
         </div>
