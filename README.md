@@ -1,5 +1,13 @@
 # PulseAnalysis AI - Health Risk Prediction System (Django)
 
+A Django-based Healthcare Analytics Web Application designed for pulse analysis, healthcare monitoring, dashboard visualization, and data-driven insights.
+
+## Live Streaming 
+https://preventive-healthcare-intelligence-system.onrender.com/
+
+Admin Panel : Admin Password : Admin
+User Panel: waseem Password : 1234
+
 ## Cloud Setup (NeonDB + Cloudinary)
 
 This project is configured for a shared cloud database and cloud media storage.
