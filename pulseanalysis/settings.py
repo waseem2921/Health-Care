@@ -26,7 +26,7 @@ def _env_list(name, default=""):
 
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-pulseanalysis-local-key")
 DEBUG = _env_bool("DEBUG", False)
-ALLOWED_HOSTS = _env_list("ALLOWED_HOSTS", "127.0.0.1,localhost")
+ALLOWED_HOSTS = _env_list("ALLOWED_HOSTS", "127.0.0.1,localhost","*")
 # ────────────────────────────────────────────────────────────────────────────────
 # Offline-First Configuration
 # ────────────────────────────────────────────────────────────────────────────────
