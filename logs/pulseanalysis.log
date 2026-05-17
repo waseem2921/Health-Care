@@ -1753,3 +1753,15 @@ django.db.utils.OperationalError: could not translate host name "ep-small-glade-
 [INFO] 2026-04-03 16:19:30 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 200 205399
 [INFO] 2026-04-03 16:19:47 log log_message:249 - "GET / HTTP/1.1" 200 29433
 [INFO] 2026-04-03 16:20:45 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-03 16:20:53 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-03 16:20:57 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-03 16:20:57 log log_message:249 - "GET /static/img/2.jpg HTTP/1.1" 304 0
+[INFO] 2026-04-03 16:21:04 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-03 16:21:04 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32892
+[INFO] 2026-04-03 16:21:04 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-03 16:21:11 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-03 16:21:16 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 36808
+[INFO] 2026-04-03 16:21:29 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-03 16:21:32 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-03 16:21:39 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-03 16:21:41 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32974
