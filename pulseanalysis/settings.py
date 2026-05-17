@@ -41,19 +41,19 @@ DEBUG = _env_bool("DEBUG", False)
 RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME", "").strip()
 RENDER_EXTERNAL_URL = os.getenv("RENDER_EXTERNAL_URL", "").strip()
 
+# Build ALLOWED_HOSTS from env or sensible defaults and include render host when present
 ALLOWED_HOSTS = _env_list("ALLOWED_HOSTS", "127.0.0.1,localhost")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 ALLOWED_HOSTS = list(dict.fromkeys(ALLOWED_HOSTS))
 
+# CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = _env_list("CSRF_TRUSTED_ORIGINS", "")
 if RENDER_EXTERNAL_HOSTNAME:
-    CSRF_TRUSTED_ORIGINS.extend(
-        [
-            f"https://{RENDER_EXTERNAL_HOSTNAME}",
-            f"http://{RENDER_EXTERNAL_HOSTNAME}",
-        ]
-    )
+    CSRF_TRUSTED_ORIGINS.extend([
+        f"https://{RENDER_EXTERNAL_HOSTNAME}",
+        f"http://{RENDER_EXTERNAL_HOSTNAME}",
+    ])
 if RENDER_EXTERNAL_URL:
     CSRF_TRUSTED_ORIGINS.append(RENDER_EXTERNAL_URL)
 CSRF_TRUSTED_ORIGINS = list(dict.fromkeys(CSRF_TRUSTED_ORIGINS))
