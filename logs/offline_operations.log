@@ -4,3 +4,8 @@
 [INFO] 2026-03-31 19:05:53 [OFFLINE] core.offline_utils - FORCE_OFFLINE environment variable set. Forcing offline mode.
 [WARNING] 2026-03-31 19:48:44 [OFFLINE] pulseanalysis.middleware - Database unreachable. Operating in offline mode with local SQLite.
 [DEBUG] 2026-04-03 16:18:56 [OFFLINE] core.offline_utils - DNS connectivity check passed for host: www.google.com
+[DEBUG] 2026-04-04 11:31:06 [OFFLINE] core.offline_utils - DNS connectivity check passed for host: www.google.com
+[DEBUG] 2026-04-04 11:51:14 [OFFLINE] core.offline_utils - DNS connectivity check passed for host: www.google.com
+[DEBUG] 2026-04-17 22:40:08 [OFFLINE] core.offline_utils - DNS connectivity check passed for host: www.google.com
+[DEBUG] 2026-04-17 22:42:51 [OFFLINE] core.offline_utils - DNS connectivity check passed for host: www.google.com
+[DEBUG] 2026-04-17 22:43:42 [OFFLINE] core.offline_utils - DNS connectivity check passed for host: www.google.com

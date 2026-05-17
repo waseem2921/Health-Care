@@ -24,9 +24,44 @@ def _env_list(name, default=""):
     return [item.strip() for item in raw_value.split(",") if item.strip()]
 
 
+def _staticfiles_backend():
+    if DEBUG:
+        return "django.contrib.staticfiles.storage.StaticFilesStorage"
+
+    try:
+        import whitenoise.storage  # noqa: F401
+    except ImportError:
+        return "django.contrib.staticfiles.storage.StaticFilesStorage"
+
+    return "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-pulseanalysis-local-key")
 DEBUG = _env_bool("DEBUG", False)
+RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME", "").strip()
+RENDER_EXTERNAL_URL = os.getenv("RENDER_EXTERNAL_URL", "").strip()
+
 ALLOWED_HOSTS = _env_list("ALLOWED_HOSTS", "127.0.0.1,localhost")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+ALLOWED_HOSTS = list(dict.fromkeys(ALLOWED_HOSTS))
+
+CSRF_TRUSTED_ORIGINS = _env_list("CSRF_TRUSTED_ORIGINS", "")
+if RENDER_EXTERNAL_HOSTNAME:
+    CSRF_TRUSTED_ORIGINS.extend(
+        [
+            f"https://{RENDER_EXTERNAL_HOSTNAME}",
+            f"http://{RENDER_EXTERNAL_HOSTNAME}",
+        ]
+    )
+if RENDER_EXTERNAL_URL:
+    CSRF_TRUSTED_ORIGINS.append(RENDER_EXTERNAL_URL)
+CSRF_TRUSTED_ORIGINS = list(dict.fromkeys(CSRF_TRUSTED_ORIGINS))
+
+USE_X_FORWARDED_HOST = _env_bool("USE_X_FORWARDED_HOST", True)
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SESSION_COOKIE_SECURE = _env_bool("SESSION_COOKIE_SECURE", not DEBUG)
+CSRF_COOKIE_SECURE = _env_bool("CSRF_COOKIE_SECURE", not DEBUG)
 # ────────────────────────────────────────────────────────────────────────────────
 # Offline-First Configuration
 # ────────────────────────────────────────────────────────────────────────────────
@@ -69,6 +104,13 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "pulseanalysis.middleware.OfflineResilienceMiddleware",
 ]
+
+try:
+    import whitenoise.middleware  # noqa: F401
+
+    MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+except ImportError:
+    pass
 
 ROOT_URLCONF = "pulseanalysis.urls"
 
@@ -190,7 +232,7 @@ if cloudinary_available and not USE_LOCAL_STORAGE and not FORCE_OFFLINE:
             "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
         },
         "staticfiles": {
-            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+            "BACKEND": _staticfiles_backend(),
         },
     }
     STORAGE_MODE = "cloudinary"
@@ -200,7 +242,7 @@ else:
             "BACKEND": "django.core.files.storage.FileSystemStorage",
         },
         "staticfiles": {
-            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+            "BACKEND": _staticfiles_backend(),
         },
     }
     STORAGE_MODE = "local"

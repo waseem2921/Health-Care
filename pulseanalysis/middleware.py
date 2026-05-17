@@ -18,11 +18,17 @@ _OFFLINE_MODE = False
 _DB_CHECK_ATTEMPTED = False
 _STORAGE_CHECK_ATTEMPTED = False
 _STORAGE_OFFLINE = False
+_FALLBACK_APPLIED = False
 
 
 def is_offline_mode():
     """Check if the app has switched to offline mode due to database unavailability."""
     global _OFFLINE_MODE, _DB_CHECK_ATTEMPTED
+
+    if getattr(settings, "FORCE_OFFLINE", False):
+        _OFFLINE_MODE = True
+        _DB_CHECK_ATTEMPTED = True
+        return True
     
     if not _DB_CHECK_ATTEMPTED:
         try:
@@ -72,11 +78,19 @@ class OfflineResilienceMiddleware:
         self.request_count = 0
 
     def __call__(self, request):
+        global _FALLBACK_APPLIED
         self.request_count += 1
         
         # Add offline status to request for use in views/templates
         request.is_offline = is_offline_mode()
         request.is_storage_offline = is_storage_offline()
+
+        # If the app is offline, switch connection settings once before executing views.
+        # This prevents repeated attempts against unreachable cloud hosts.
+        if request.is_offline and not _FALLBACK_APPLIED:
+            ensure_offline_fallback()
+            _close_db_connections()
+            _FALLBACK_APPLIED = True
 
         # Attempt to detect if we're in offline mode
         try:
@@ -99,6 +113,7 @@ class OfflineResilienceMiddleware:
             # Switch to SQLite and retry this request once.
             ensure_offline_fallback()
             _close_db_connections()
+            _FALLBACK_APPLIED = True
             try:
                 response = self.get_response(request)
             except Exception as retry_exc:

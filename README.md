@@ -138,6 +138,31 @@ Before users can make predictions, you must:
 **Database errors?**
 - Database auto-initializes on startup
 
+## 🚀 Render Deployment
+
+Use these settings on Render:
+
+- Build command: `pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate`
+- Start command: `gunicorn pulseanalysis.wsgi:application`
+
+Set these environment variables:
+
+```env
+SECRET_KEY=your-production-secret-key
+DEBUG=False
+ALLOWED_HOSTS=your-service.onrender.com
+DATABASE_URL=postgresql://<user>:<password>@<host>/<dbname>?sslmode=require
+RENDER_EXTERNAL_HOSTNAME=your-service.onrender.com
+```
+
+If you use Cloudinary for uploads, also set:
+
+```env
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
+```
+
 ---
 
 **Last Updated:** 2025-01-05

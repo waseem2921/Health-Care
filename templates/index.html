@@ -526,6 +526,23 @@
             transition: 0.25s ease;
         }
 
+        .role-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .role-btn.secondary {
+            background: transparent;
+            border: 1.4px solid rgba(0, 0, 0, 0.18);
+            color: #1f2937;
+        }
+
+        .patient .role-btn.secondary {
+            border-color: rgba(11, 101, 165, 0.4);
+            color: #0b4868;
+        }
+
         .role-btn:hover {
             transform: translateY(-1px);
             filter: brightness(1.04);
@@ -775,7 +792,10 @@
                         <li><i class="fa-solid fa-circle"></i> Health Recommendations</li>
                         <li><i class="fa-solid fa-circle"></i> Chatbot Assistance</li>
                     </ul>
-                    <a href="/login/patient" class="role-btn">Continue as Patient <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="role-actions">
+                        <a href="/register" class="role-btn secondary">New Patient? Register <i class="fa-solid fa-user-plus"></i></a>
+                        <a href="/login/patient" class="role-btn">Continue as Patient <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </article>
 
                 <article class="role-card doctor">

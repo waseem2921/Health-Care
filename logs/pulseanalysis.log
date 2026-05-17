@@ -1765,3 +1765,1162 @@ django.db.utils.OperationalError: could not translate host name "ep-small-glade-
 [INFO] 2026-04-03 16:21:32 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
 [INFO] 2026-04-03 16:21:39 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
 [INFO] 2026-04-03 16:21:41 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32974
+[INFO] 2026-04-04 08:45:57 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-04 08:46:46 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-04 10:36:44 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[ERROR] 2026-04-04 10:37:06 log log_message:249 - Internal Server Error: /UserAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 333, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2321, in user_action
+    patient = Patient.objects.filter(username=username, password=password).first()
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\models\query.py", line 1145, in first
+    for obj in queryset[:1]:
+               ~~~~~~~~^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1622, in execute_sql
+    cursor = self.connection.cursor()
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 333, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "ep-small-glade-anm7q8oj-pooler.c-6.us-east-1.aws.neon.tech" to address: Name or service not known
+
+[ERROR] 2026-04-04 10:37:06 log log_message:249 - "POST /UserAction HTTP/1.1" 500 145
+[INFO] 2026-04-04 10:37:24 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-04 10:37:42 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-04 10:37:43 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32885
+[INFO] 2026-04-04 10:37:45 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-04 10:37:58 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-04 10:38:09 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 36835
+[INFO] 2026-04-04 10:38:34 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32906
+[WARNING] 2026-04-04 10:39:28 log log_message:249 - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[WARNING] 2026-04-04 10:39:28 log log_message:249 - "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+[WARNING] 2026-04-04 10:39:28 log log_message:249 - Not Found: /static/lib/chartjs/chart.umd.js.map
+[WARNING] 2026-04-04 10:39:28 log log_message:249 - "GET /static/lib/chartjs/chart.umd.js.map HTTP/1.1" 404 179
+[INFO] 2026-04-04 10:41:07 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-04 10:41:15 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-04 10:41:33 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 10:41:34 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 26015
+[INFO] 2026-04-04 10:42:01 log log_message:249 - "GET /doctor/patient/4/ HTTP/1.1" 200 34179
+[INFO] 2026-04-04 10:42:21 log log_message:249 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 10:42:21 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-04 10:42:29 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-04 10:42:37 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-04 10:42:43 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 33099
+[INFO] 2026-04-04 10:42:56 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-04 10:42:59 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-04 10:43:06 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-04 11:00:59 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-04 11:01:10 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:01:10 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32906
+[INFO] 2026-04-04 11:25:52 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-04 11:26:52 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 36831
+[INFO] 2026-04-04 11:30:52 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32922
+[INFO] 2026-04-04 11:30:55 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32922
+[INFO] 2026-04-04 11:30:57 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:30:57 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:31:06 log log_message:249 - "GET /google-fit-callback/?state=CQhMqKUgXu9Mhc8WXZ84x4DXSw024d&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E-rKcQvjonpYpEiX6ZASrCNuUabR-vZagiFajeSsF4SERTjHbkqShxOoWVWfnWclQ&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:31:08 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11775
+[INFO] 2026-04-04 11:33:45 log log_message:249 - "POST /detect_action/ HTTP/1.1" 200 36856
+[INFO] 2026-04-04 11:33:46 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-04 11:34:15 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-04 11:34:19 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-04 11:35:16 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:35:16 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 26026
+[INFO] 2026-04-04 11:35:57 log log_message:249 - "GET /doctor/patient/4/ HTTP/1.1" 200 34032
+[INFO] 2026-04-04 11:38:39 log log_message:249 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:38:39 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-04 11:38:42 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-04 11:38:54 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-04 11:39:03 log log_message:249 - "GET /model_performance HTTP/1.1" 200 12101
+[INFO] 2026-04-04 11:39:24 log log_message:249 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-04 11:39:24 log log_message:249 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-04-04 11:39:57 log log_message:249 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-04 11:39:58 log log_message:249 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-04-04 11:48:49 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-04 11:48:52 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-04 11:49:44 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-04 11:49:47 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-04 11:49:55 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:49:55 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32786
+[INFO] 2026-04-04 11:50:02 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-04 11:50:07 log log_message:249 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-04-04 11:50:15 log log_message:249 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:50:15 log log_message:249 - "GET /doctor/dashboard/ HTTP/1.1" 200 26026
+[INFO] 2026-04-04 11:51:08 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:51:08 log log_message:249 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:51:14 log log_message:249 - "GET /google-fit-callback/?state=MTVR2E0hVxFoBZvBykz6H5uibN2Pu8&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E_f9Wqz_wFHHifSzR_v378DAoyWHBGKb1shEfqQd6mp8j7h6e-apPk1oKjcaLb_qg&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:51:17 log log_message:249 - "GET /fetch-google-fit/ HTTP/1.1" 200 11765
+[INFO] 2026-04-04 11:51:24 log log_message:249 - "GET /UserHome HTTP/1.1" 200 21125
+[INFO] 2026-04-04 11:51:30 log log_message:249 - "GET /Detect HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:51:30 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-04 11:51:40 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:51:40 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32786
+[INFO] 2026-04-04 11:52:28 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-04 11:52:33 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 36878
+[INFO] 2026-04-04 11:53:58 log log_message:249 - "GET /doctor/patient/4/ HTTP/1.1" 200 34020
+[INFO] 2026-04-04 11:54:57 log log_message:249 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-04-04 11:54:57 log log_message:249 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-04 11:55:01 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-04 11:55:09 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-04 11:55:12 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 33116
+[INFO] 2026-04-04 11:56:03 log log_message:249 - "GET /model_performance HTTP/1.1" 200 12101
+[INFO] 2026-04-04 11:56:10 log log_message:249 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-04 11:56:10 log log_message:249 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-04-05 22:43:12 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-05 22:48:27 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-05 22:48:38 log log_message:249 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-05 22:48:38 log log_message:249 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-04-05 22:48:51 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-05 22:48:53 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32892
+[INFO] 2026-04-05 22:48:53 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-05 22:57:15 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-05 22:57:29 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 36840
+[INFO] 2026-04-05 23:03:28 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-05 23:03:35 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-05 23:04:24 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-05 23:04:29 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-05 23:04:52 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-05 23:04:57 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-05 23:05:16 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-05 23:05:20 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-05 23:05:28 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-05 23:05:32 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-05 23:06:50 log log_message:249 - "POST /DetectAction HTTP/1.1" 200 37166
+[INFO] 2026-04-07 08:31:24 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 08:32:29 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-07 08:32:33 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-07 08:32:36 basehttp handle_error:82 - - Broken pipe from ('127.0.0.1', 57026)
+[INFO] 2026-04-07 08:32:41 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-07 08:32:44 log log_message:249 - "GET /model_performance HTTP/1.1" 200 12101
+[ERROR] 2026-04-07 08:32:49 log log_message:249 - Internal Server Error: /preprocess
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2116, in preprocess_view
+    total, train_count, test_count = preprocess_data()
+                                     ~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 1154, in preprocess_data
+    dataset[TARGET_COLUMN] = target_imputer.fit_transform(dataset[[TARGET_COLUMN]])
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4672, in __setitem__
+    self._set_item(key, value)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4872, in _set_item
+    value, refs = self._sanitize_column(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 5743, in _sanitize_column
+    return sanitize_array(value, self.index, copy=True, allow_2d=True), None
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\construction.py", line 616, in sanitize_array
+    subarr = lib.maybe_convert_objects(
+        data,
+    ...<5 lines>...
+        dtype_if_all_nat=np.dtype("M8[s]"),
+    )
+  File "pandas/_libs/lib.pyx", line 2568, in pandas._libs.lib.maybe_convert_objects
+ValueError: Buffer has wrong number of dimensions (expected 1, got 2)
+[ERROR] 2026-04-07 08:32:49 log log_message:249 - "GET /preprocess HTTP/1.1" 500 145
+[ERROR] 2026-04-07 08:32:52 log log_message:249 - Internal Server Error: /preprocess
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2116, in preprocess_view
+    total, train_count, test_count = preprocess_data()
+                                     ~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 1154, in preprocess_data
+    dataset[TARGET_COLUMN] = target_imputer.fit_transform(dataset[[TARGET_COLUMN]])
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4672, in __setitem__
+    self._set_item(key, value)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4872, in _set_item
+    value, refs = self._sanitize_column(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 5743, in _sanitize_column
+    return sanitize_array(value, self.index, copy=True, allow_2d=True), None
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\construction.py", line 616, in sanitize_array
+    subarr = lib.maybe_convert_objects(
+        data,
+    ...<5 lines>...
+        dtype_if_all_nat=np.dtype("M8[s]"),
+    )
+  File "pandas/_libs/lib.pyx", line 2568, in pandas._libs.lib.maybe_convert_objects
+ValueError: Buffer has wrong number of dimensions (expected 1, got 2)
+[ERROR] 2026-04-07 08:32:52 log log_message:249 - "GET /preprocess HTTP/1.1" 500 145
+[ERROR] 2026-04-07 08:32:53 log log_message:249 - Internal Server Error: /preprocess
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2116, in preprocess_view
+    total, train_count, test_count = preprocess_data()
+                                     ~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 1154, in preprocess_data
+    dataset[TARGET_COLUMN] = target_imputer.fit_transform(dataset[[TARGET_COLUMN]])
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4672, in __setitem__
+    self._set_item(key, value)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4872, in _set_item
+    value, refs = self._sanitize_column(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 5743, in _sanitize_column
+    return sanitize_array(value, self.index, copy=True, allow_2d=True), None
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\construction.py", line 616, in sanitize_array
+    subarr = lib.maybe_convert_objects(
+        data,
+    ...<5 lines>...
+        dtype_if_all_nat=np.dtype("M8[s]"),
+    )
+  File "pandas/_libs/lib.pyx", line 2568, in pandas._libs.lib.maybe_convert_objects
+ValueError: Buffer has wrong number of dimensions (expected 1, got 2)
+[ERROR] 2026-04-07 08:32:53 log log_message:249 - "GET /preprocess HTTP/1.1" 500 145
+[ERROR] 2026-04-07 08:32:57 log log_message:249 - Internal Server Error: /preprocess
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2116, in preprocess_view
+    total, train_count, test_count = preprocess_data()
+                                     ~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 1154, in preprocess_data
+    dataset[TARGET_COLUMN] = target_imputer.fit_transform(dataset[[TARGET_COLUMN]])
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4672, in __setitem__
+    self._set_item(key, value)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4872, in _set_item
+    value, refs = self._sanitize_column(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 5743, in _sanitize_column
+    return sanitize_array(value, self.index, copy=True, allow_2d=True), None
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\construction.py", line 616, in sanitize_array
+    subarr = lib.maybe_convert_objects(
+        data,
+    ...<5 lines>...
+        dtype_if_all_nat=np.dtype("M8[s]"),
+    )
+  File "pandas/_libs/lib.pyx", line 2568, in pandas._libs.lib.maybe_convert_objects
+ValueError: Buffer has wrong number of dimensions (expected 1, got 2)
+[ERROR] 2026-04-07 08:32:57 log log_message:249 - "GET /preprocess HTTP/1.1" 500 145
+[INFO] 2026-04-07 08:33:03 log log_message:249 - "GET /Upload HTTP/1.1" 200 6498
+[INFO] 2026-04-07 08:33:27 log log_message:249 - "POST /UploadAction HTTP/1.1" 200 11779
+[ERROR] 2026-04-07 08:33:47 log log_message:249 - Internal Server Error: /preprocess
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2116, in preprocess_view
+    total, train_count, test_count = preprocess_data()
+                                     ~~~~~~~~~~~~~~~^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 1154, in preprocess_data
+    dataset[TARGET_COLUMN] = target_imputer.fit_transform(dataset[[TARGET_COLUMN]])
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4672, in __setitem__
+    self._set_item(key, value)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 4872, in _set_item
+    value, refs = self._sanitize_column(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\frame.py", line 5743, in _sanitize_column
+    return sanitize_array(value, self.index, copy=True, allow_2d=True), None
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\.venv\Lib\site-packages\pandas\core\construction.py", line 616, in sanitize_array
+    subarr = lib.maybe_convert_objects(
+        data,
+    ...<5 lines>...
+        dtype_if_all_nat=np.dtype("M8[s]"),
+    )
+  File "pandas/_libs/lib.pyx", line 2568, in pandas._libs.lib.maybe_convert_objects
+ValueError: Buffer has wrong number of dimensions (expected 1, got 2)
+[ERROR] 2026-04-07 08:33:47 log log_message:249 - "GET /preprocess HTTP/1.1" 500 145
+[INFO] 2026-04-07 08:33:54 log log_message:249 - "GET /trainmodels HTTP/1.1" 200 7295
+[INFO] 2026-04-07 08:34:10 log log_message:249 - "GET /model_performance HTTP/1.1" 200 12101
+[INFO] 2026-04-07 08:34:14 log log_message:249 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-07 08:34:15 log log_message:249 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-04-07 08:34:27 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-07 08:34:33 basehttp handle_error:82 - - Broken pipe from ('127.0.0.1', 60263)
+[INFO] 2026-04-07 08:34:34 log log_message:249 - "GET /trainmodels HTTP/1.1" 200 7295
+[INFO] 2026-04-07 08:34:37 log log_message:249 - "GET /trainmodels HTTP/1.1" 200 7295
+[INFO] 2026-04-07 08:34:49 log log_message:249 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-07 08:34:49 log log_message:249 - "GET /static/model_accuracy.png HTTP/1.1" 200 32800
+[INFO] 2026-04-07 08:35:00 log log_message:249 - "GET /management-analytics HTTP/1.1" 200 32844
+[INFO] 2026-04-07 08:35:00 log log_message:249 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-07 08:37:22 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-07 08:37:25 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 08:37:40 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-07 08:37:43 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 08:53:45 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 08:54:34 log log_message:249 - "GET / HTTP/1.1" 200 29433
+[WARNING] 2026-04-07 08:54:36 log log_message:249 - Not Found: /favicon.ico
+[WARNING] 2026-04-07 08:54:36 log log_message:249 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-04-07 08:54:43 log log_message:249 - "GET /login/admin HTTP/1.1" 200 9681
+[INFO] 2026-04-07 08:54:52 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-07 09:00:50 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-07 09:00:55 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 09:02:18 log log_message:249 - "GET /preprocess HTTP/1.1" 200 7271
+[INFO] 2026-04-07 09:02:18 log log_message:249 - "GET /static/img/dataset.jpg HTTP/1.1" 200 29013
+[INFO] 2026-04-07 09:13:12 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-07 09:13:18 autoreload run_with_reloader:681 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 09:16:45 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-07 09:16:50 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-07 09:16:58 log log_message:249 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-07 09:17:00 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32191
+[INFO] 2026-04-07 09:17:07 log log_message:249 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-07 09:22:27 log log_message:249 - "GET /UserHome HTTP/1.1" 200 32191
+[INFO] 2026-04-07 09:28:19 log log_message:249 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-07 09:28:23 log log_message:249 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-07 09:28:30 log log_message:249 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-07 11:41:34 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 11:44:00 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 11:44:12 basehttp log_message:213 - "GET / HTTP/1.1" 200 29433
+[WARNING] 2026-04-07 11:44:12 log log_response:253 - Not Found: /favicon.ico
+[WARNING] 2026-04-07 11:44:12 basehttp log_message:213 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-04-07 11:44:19 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-07 11:44:19 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-04-07 11:44:54 basehttp log_message:213 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-07 11:45:00 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-07 11:45:05 basehttp log_message:213 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-04-07 11:45:12 basehttp log_message:213 - "GET /login/admin HTTP/1.1" 200 9681
+[INFO] 2026-04-07 11:47:32 basehttp log_message:213 - "GET / HTTP/1.1" 200 29433
+[INFO] 2026-04-07 11:47:36 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-07 11:47:46 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-07 11:47:46 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32780
+[INFO] 2026-04-07 11:51:04 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[ERROR] 2026-04-07 12:00:23 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2842, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 349, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: recovery_index, stress_rolling_7, sleep_trend_7, steps_trend_7, heart_rate_rolling_7, activity_balance, stress_trend_7, sleep_rolling_7, steps_rolling_7, heart_stability_score, heart_rate_trend_7
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3156, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3112, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 376, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 12:00:23 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[ERROR] 2026-04-07 12:00:27 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2842, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 349, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: recovery_index, stress_rolling_7, sleep_trend_7, steps_trend_7, heart_rate_rolling_7, activity_balance, stress_trend_7, sleep_rolling_7, steps_rolling_7, heart_stability_score, heart_rate_trend_7
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3156, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3112, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 376, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 12:00:27 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[ERROR] 2026-04-07 12:00:31 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2842, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 349, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: recovery_index, stress_rolling_7, sleep_trend_7, steps_trend_7, heart_rate_rolling_7, activity_balance, stress_trend_7, sleep_rolling_7, steps_rolling_7, heart_stability_score, heart_rate_trend_7
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3156, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3112, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 376, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 12:00:31 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[INFO] 2026-04-07 12:00:34 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-07 12:00:35 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[ERROR] 2026-04-07 12:00:37 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2842, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 349, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: recovery_index, stress_rolling_7, sleep_trend_7, steps_trend_7, heart_rate_rolling_7, activity_balance, stress_trend_7, sleep_rolling_7, steps_rolling_7, heart_stability_score, heart_rate_trend_7
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3156, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3112, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 376, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 12:00:37 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[ERROR] 2026-04-07 12:00:50 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2842, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 349, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: recovery_index, stress_rolling_7, sleep_trend_7, steps_trend_7, heart_rate_rolling_7, activity_balance, stress_trend_7, sleep_rolling_7, steps_rolling_7, heart_stability_score, heart_rate_trend_7
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3156, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3112, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 376, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 12:00:50 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[INFO] 2026-04-07 12:00:55 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-07 12:01:02 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-07 12:01:02 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32780
+[INFO] 2026-04-07 19:42:47 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[ERROR] 2026-04-07 19:42:50 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2842, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 349, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: recovery_index, stress_rolling_7, sleep_trend_7, steps_trend_7, heart_rate_rolling_7, activity_balance, stress_trend_7, sleep_rolling_7, steps_rolling_7, heart_stability_score, heart_rate_trend_7
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3156, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3112, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 376, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 19:42:50 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[ERROR] 2026-04-07 19:42:55 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2842, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 349, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: recovery_index, stress_rolling_7, sleep_trend_7, steps_trend_7, heart_rate_rolling_7, activity_balance, stress_trend_7, sleep_rolling_7, steps_rolling_7, heart_stability_score, heart_rate_trend_7
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3156, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3112, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 376, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 19:42:55 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[INFO] 2026-04-07 20:40:32 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 20:40:57 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 302 0
+[INFO] 2026-04-07 20:40:57 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-07 20:41:10 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-07 20:41:13 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32191
+[INFO] 2026-04-07 20:41:13 basehttp log_message:213 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-07 20:41:19 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[ERROR] 2026-04-07 20:41:25 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2897, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 402, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: sleep_rolling_7, stress_rolling_7, steps_trend_7, activity_balance, steps_rolling_7, heart_rate_rolling_7, heart_rate_trend_7, stress_trend_7, sleep_trend_7, heart_stability_score, recovery_index
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3219, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3175, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 429, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 20:41:25 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[ERROR] 2026-04-07 20:41:34 log log_response:253 - Internal Server Error: /DetectAction
+Traceback (most recent call last):
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 2897, in _run_prediction
+    ensemble_proba, loaded_models, explanation_model = _ensemble_predict_proba(test, len(target_encoder.classes_))
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 402, in _ensemble_predict_proba
+    model_proba = model.predict_proba(test_frame)[0]
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1921, in predict_proba
+    class_probs = super().predict(
+        X=X,
+    ...<2 lines>...
+        iteration_range=iteration_range,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\sklearn.py", line 1446, in predict
+    predts = self.get_booster().inplace_predict(
+        data=X,
+    ...<4 lines>...
+        validate_features=validate_features,
+    )
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 774, in inner_f
+    return func(**kwargs)
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\xgboost\core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level'] ['age', 'gender', 'resting_heart_rate', 'stress_level', 'sleep_duration_hours', 'sleep_quality_score', 'steps_per_day', 'calories_burned', 'blood_oxygen_level', 'activity_level', 'recovery_index', 'activity_balance', 'heart_stability_score', 'steps_rolling_7', 'sleep_rolling_7', 'stress_rolling_7', 'heart_rate_rolling_7', 'steps_trend_7', 'sleep_trend_7', 'stress_trend_7', 'heart_rate_trend_7']
+training data did not have the following fields: sleep_rolling_7, stress_rolling_7, steps_trend_7, activity_balance, steps_rolling_7, heart_rate_rolling_7, heart_rate_trend_7, stress_trend_7, sleep_trend_7, heart_stability_score, recovery_index
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3219, in detect_action
+    return _run_prediction(request, raw_input)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 3175, in _run_prediction
+    return render_jinja(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py", line 429, in render_jinja
+    return render(request, template_name, context or {}, using="jinja2")
+  File "D:\Python\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\django\template\backends\jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\templates\UserApp\Result.html", line 783, in top-level template code
+    const hrData    = has7Day ? dailyHR.map(v => v ?? null) : [Number("{{ input_data.resting_heart_rate|default(0) }}") || null];
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'input_data' is undefined
+[ERROR] 2026-04-07 20:41:34 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 500 145
+[INFO] 2026-04-07 20:42:39 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 20:45:49 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-07 20:45:54 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 20:47:17 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 20:47:39 basehttp log_message:213 - "GET / HTTP/1.1" 200 29433
+[WARNING] 2026-04-07 20:47:39 log log_response:253 - Not Found: /favicon.ico
+[WARNING] 2026-04-07 20:47:39 basehttp log_message:213 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-04-07 20:47:44 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-07 20:47:56 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-07 20:47:58 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32191
+[INFO] 2026-04-07 20:48:09 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-07 20:48:22 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 200 30731
+[INFO] 2026-04-07 20:53:21 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-07 20:53:23 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 20:58:37 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-07 20:58:42 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 20:59:18 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-07 20:59:38 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-07 20:59:47 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[INFO] 2026-04-07 20:59:56 basehttp log_message:213 - "GET /register HTTP/1.1" 200 11354
+[INFO] 2026-04-07 21:00:05 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-07 21:00:11 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-07 21:00:22 basehttp log_message:213 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-07 21:00:26 basehttp log_message:213 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-07 21:00:26 basehttp log_message:213 - "GET /static/model_accuracy.png HTTP/1.1" 200 34944
+[INFO] 2026-04-08 09:04:01 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-08 09:13:42 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-08 09:13:42 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-08 09:13:47 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-08 09:13:47 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-08 09:14:14 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-08 09:15:08 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-08 09:15:08 autoreload trigger_reload:265 - D:\project b4\B4_Predicting Lifestyle-Related Health Risks Using Pulse and Sleep Patterns\core\views.py changed, reloading.
+[INFO] 2026-04-08 09:15:13 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-08 09:15:13 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-08 09:16:06 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-08 09:16:12 basehttp log_message:213 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-08 09:16:15 basehttp log_message:213 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-08 09:16:15 basehttp log_message:213 - "GET /static/model_accuracy.png HTTP/1.1" 200 35430
+[INFO] 2026-04-08 09:17:26 basehttp log_message:213 - "GET /model_performance HTTP/1.1" 200 12079
+[INFO] 2026-04-09 18:54:57 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-09 18:54:57 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-04-09 18:55:09 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[INFO] 2026-04-12 05:54:44 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-12 05:55:56 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[INFO] 2026-04-12 05:56:09 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-12 05:56:09 basehttp log_message:213 - "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[INFO] 2026-04-12 05:56:09 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-04-12 05:56:09 basehttp log_message:213 - "GET /static/img/2.jpg HTTP/1.1" 304 0
+[INFO] 2026-04-12 05:56:16 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-12 05:56:16 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32780
+[INFO] 2026-04-12 05:56:16 basehttp log_message:213 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-12 05:56:25 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-12 05:56:39 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 200 30348
+[INFO] 2026-04-12 05:57:01 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-12 05:57:07 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-12 05:57:14 basehttp log_message:213 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-12 05:57:17 basehttp log_message:213 - "GET /model_performance HTTP/1.1" 200 12079
+[INFO] 2026-04-12 05:57:25 basehttp log_message:213 - "GET /management-analytics HTTP/1.1" 200 32250
+[INFO] 2026-04-12 08:57:35 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[INFO] 2026-04-12 08:57:42 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-12 08:57:49 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-12 08:57:49 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 31903
+[INFO] 2026-04-12 08:58:13 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[INFO] 2026-04-12 08:58:16 basehttp log_message:213 - "GET /login/doctor HTTP/1.1" 200 9589
+[INFO] 2026-04-12 08:58:24 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-04-12 08:58:25 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 26025
+[INFO] 2026-04-12 10:36:07 basehttp log_message:213 - "GET /Detect HTTP/1.1" 302 0
+[INFO] 2026-04-12 10:36:07 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-12 10:36:18 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-12 10:36:18 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 31903
+[INFO] 2026-04-12 10:36:21 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18699
+[INFO] 2026-04-12 10:36:30 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 200 30358
+[INFO] 2026-04-14 18:46:38 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-14 18:47:33 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[WARNING] 2026-04-14 18:47:34 log log_response:253 - Not Found: /favicon.ico
+[WARNING] 2026-04-14 18:47:34 basehttp log_message:213 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-04-17 22:37:18 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-17 22:38:48 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[INFO] 2026-04-17 22:39:07 basehttp log_message:213 - "GET /login/patient HTTP/1.1" 200 7814
+[INFO] 2026-04-17 22:39:07 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[INFO] 2026-04-17 22:39:17 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:39:20 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32175
+[INFO] 2026-04-17 22:39:20 basehttp log_message:213 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 304 0
+[INFO] 2026-04-17 22:39:43 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:39:47 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:40:07 basehttp log_message:213 - "GET /google-fit-callback/?state=0W58Fi0SIW2TxLFoDl4Z17i7jeDrAX&iss=https://accounts.google.com&code=4/0Aci98E9xyj91QpMp_7pxzA1w5xHMRhO1JqZLYUKoIhE6QlAEEY2ehdrmtZI_h6E_Tujy2Q&scope=https://www.googleapis.com/auth/fitness.sleep.read%20https://www.googleapis.com/auth/fitness.heart_rate.read%20https://www.googleapis.com/auth/fitness.activity.read HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:40:12 basehttp log_message:213 - "GET /fetch-google-fit/ HTTP/1.1" 200 11765
+[INFO] 2026-04-17 22:40:12 basehttp log_message:213 - "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[INFO] 2026-04-17 22:40:12 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 304 0
+[WARNING] 2026-04-17 22:40:12 log log_response:253 - Not Found: /favicon.ico
+[WARNING] 2026-04-17 22:40:12 basehttp log_message:213 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-04-17 22:42:41 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:42:43 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:42:50 basehttp log_message:213 - "GET /google-fit-callback/?state=jpnYlVXVWsMOFdD5mlrCStg0JvCwUn&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E-tiowyy3xBxoX_K_daHEKAz_OAZwVYEP--7AUDyqSe_BjpOFn9Uo5rbT-KrjEfAg&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:42:54 basehttp log_message:213 - "GET /fetch-google-fit/ HTTP/1.1" 200 11765
+[INFO] 2026-04-17 22:43:07 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 21125
+[INFO] 2026-04-17 22:43:08 basehttp log_message:213 - "GET /static/lib/chartjs/chart.umd.min.js HTTP/1.1" 200 205399
+[INFO] 2026-04-17 22:43:10 basehttp log_message:213 - "GET /Detect HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:43:10 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-17 22:43:20 basehttp log_message:213 - "POST /UserAction HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:43:22 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32175
+[INFO] 2026-04-17 22:43:34 basehttp log_message:213 - "GET /connect-google-fit/ HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:43:41 basehttp log_message:213 - "GET /google-fit-callback/?state=tzThKITCvJdTnCz5ihA0AuJVVpnPQb&iss=https%3A%2F%2Faccounts.google.com&code=4%2F0Aci98E8mgTraEuQWra6jHgWmOpS4fZ_-E5GrRgrQRt_IhH8tEd5dNBanefV1rhTbChBTeA&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.heart_rate.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.activity.read+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.sleep.read HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:43:46 basehttp log_message:213 - "GET /fetch-google-fit/ HTTP/1.1" 200 11775
+[INFO] 2026-04-17 22:43:56 basehttp handle_error:81 - - Broken pipe from ('127.0.0.1', 49956)
+[INFO] 2026-04-17 22:43:59 basehttp log_message:213 - "GET /UserHome HTTP/1.1" 200 32175
+[INFO] 2026-04-17 22:44:03 basehttp log_message:213 - "GET /Detect HTTP/1.1" 200 18700
+[INFO] 2026-04-17 22:44:41 basehttp log_message:213 - "POST /DetectAction HTTP/1.1" 200 30921
+[INFO] 2026-04-17 22:45:17 basehttp log_message:213 - "GET /userlogin HTTP/1.1" 200 7814
+[INFO] 2026-04-17 22:45:21 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-17 22:45:21 basehttp log_message:213 - "GET /static/img/2.jpg HTTP/1.1" 304 0
+[INFO] 2026-04-17 22:45:41 basehttp log_message:213 - "POST /doctor/login/ HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:45:43 basehttp log_message:213 - "GET /doctor/dashboard/ HTTP/1.1" 200 26015
+[INFO] 2026-04-17 22:46:00 basehttp log_message:213 - "GET /doctor/patient/4/ HTTP/1.1" 200 33429
+[INFO] 2026-04-17 22:46:29 basehttp log_message:213 - "GET /doctor/logout/ HTTP/1.1" 302 0
+[INFO] 2026-04-17 22:46:29 basehttp log_message:213 - "GET /doctor/login/ HTTP/1.1" 200 9589
+[INFO] 2026-04-17 22:46:31 basehttp log_message:213 - "GET /adminlogin HTTP/1.1" 200 9681
+[INFO] 2026-04-17 22:46:41 basehttp log_message:213 - "POST /AdminAction HTTP/1.1" 200 12429
+[INFO] 2026-04-17 22:46:45 basehttp log_message:213 - "GET /model_performance HTTP/1.1" 200 12079
+[INFO] 2026-04-17 22:46:54 basehttp log_message:213 - "GET /comparison HTTP/1.1" 200 5594
+[INFO] 2026-04-17 22:46:54 basehttp log_message:213 - "GET /static/model_accuracy.png HTTP/1.1" 200 35430
+[INFO] 2026-04-17 22:47:08 basehttp handle_error:81 - - Broken pipe from ('127.0.0.1', 50079)
+[INFO] 2026-04-17 22:47:12 basehttp log_message:213 - "GET /management-analytics HTTP/1.1" 200 32712
+[INFO] 2026-04-17 23:06:34 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-04-17 23:07:25 basehttp log_message:213 - "GET /management-analytics HTTP/1.1" 200 32712
+[INFO] 2026-05-17 19:25:07 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-05-17 19:26:30 autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[INFO] 2026-05-17 19:26:54 basehttp log_message:213 - "GET / HTTP/1.1" 200 30059
+[WARNING] 2026-05-17 19:26:54 log log_response:253 - Not Found: /favicon.ico
+[WARNING] 2026-05-17 19:26:54 basehttp log_message:213 - "GET /favicon.ico HTTP/1.1" 404 179
+[INFO] 2026-05-17 19:27:07 basehttp log_message:213 - "GET /register HTTP/1.1" 200 11354
+[INFO] 2026-05-17 19:27:07 basehttp log_message:213 - "GET /static/img/2.jpg HTTP/1.1" 200 108664
+[INFO] 2026-05-17 19:27:07 basehttp log_message:213 - "GET /static/css/bootstrap.min.css HTTP/1.1" 200 164115
+[INFO] 2026-05-17 19:27:07 basehttp log_message:213 - "GET /static/css/role-theme.css HTTP/1.1" 200 6986

@@ -292,6 +292,12 @@
         <div class="alert alert-{{ badge }} text-center">
             <h3 class="mb-2">{{ prediction }}</h3>
             <p class="mb-0">Confidence Level: <strong>{{ probability }}</strong></p>
+            {% if confidence_tier %}
+            <p class="mb-0 small">{{ confidence_tier }}{% if confidence_message %} - {{ confidence_message }}{% endif %}</p>
+            {% endif %}
+            {% if raw_probability %}
+            <p class="mb-0 small text-muted">Raw model confidence: {{ raw_probability }}</p>
+            {% endif %}
         </div>
 
         <div class="row g-3 mt-1 text-center">
